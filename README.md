@@ -1,3 +1,2 @@
-# Portfolio
-# Estágio (Em desenvolvimento)
+# Portfolio, Estágio (Em desenvolvimento)
 Meu site contendo meus principais projetos
