@@ -1,2 +1,2 @@
-# Portfolio, Estágio: ('Em desenvolvimento');
+# Portfolio
 Meu site contendo meus principais projetos
