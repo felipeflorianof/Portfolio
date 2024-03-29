@@ -222,6 +222,7 @@ section p strong {
     }
     footer {
         padding: 10px 0;
+        text-align: center;
     }
     section {
         margin: 10px;
@@ -243,19 +244,17 @@ section p strong {
     }
     #goodbye-java {
         text-align: center;
-        display: flex;
-        align-items: center;
-        margin-left: 15px;
+        margin: 20px;
     }
     .typing-animation {
-        font-size: 23px;
+        font-size: 22px;
         overflow: hidden; 
         white-space: nowrap;
         border-right: .15em solid orange;
         animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
         width: 0;
         animation-fill-mode: forwards;
-        max-width: 360px;
+        max-width: 350px;
     }
     
     @keyframes typing {
@@ -270,18 +269,23 @@ section p strong {
 
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 370px) {
     /* Estilos específicos para dispositivos com largura máxima de 320px (mobile) */
 
+    section {
+        margin: 10px;
+        max-width: 100%;
+    }
+
     .typing-animation {
-        font-size: 18.9px;
         overflow: hidden; 
         white-space: nowrap;
         border-right: .15em solid orange;
         animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
         width: 0;
         animation-fill-mode: forwards;
-        max-width: 300px;
+        font-size: 21.5px; /* Reduza ainda mais o tamanho da fonte para melhor ajuste em telas menores */
+        max-width: 100%; 
     }
 
     @keyframes typing {
@@ -295,7 +299,44 @@ section p strong {
     }
 
     .Elephant {
-        margin-left: 0px;
+        margin-left: 10px;
+        width: 300px;
+    }
+}
+
+
+
+@media only screen and (max-width: 280px) {
+    /* Estilos específicos para dispositivos com largura máxima de 320px (mobile) */
+
+    section {
+        margin: 10px;
+        max-width: 100%;
+    }
+
+    .typing-animation {
+        overflow: hidden; 
+        white-space: nowrap;
+        border-right: .15em solid orange;
+        animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
+        width: 0;
+        animation-fill-mode: forwards;
+        font-size: 16.5px; /* Reduza ainda mais o tamanho da fonte para melhor ajuste em telas menores */
+        max-width: 100%; 
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+    
+    @keyframes blinkCursor {
+        from, to { border-color: transparent; }
+        50% { border-color: orange; }
+    }
+
+    .Elephant {
+        margin-left: -10px;
         width: 300px;
     }
 }
