@@ -145,6 +145,7 @@ section p strong {
 
 /* Title Animation */
 .typing-animation {
+    text-align: center;
     overflow: hidden;
     white-space: nowrap;
     border-right: .15em solid orange;
@@ -228,10 +229,6 @@ section p strong {
         margin: 10px;
         max-width: 100%;
     }
-    .typing-animation {
-        font-size: 18px;
-        max-width: none;
-    }
     .Elephant {
         margin-left: 10px;
     }
@@ -247,6 +244,7 @@ section p strong {
         margin: 20px;
     }
     .typing-animation {
+        text-align: center;
         font-size: 22px;
         overflow: hidden; 
         white-space: nowrap;
@@ -278,6 +276,7 @@ section p strong {
     }
 
     .typing-animation {
+        text-align: center;
         overflow: hidden; 
         white-space: nowrap;
         border-right: .15em solid orange;
@@ -315,6 +314,7 @@ section p strong {
     }
 
     .typing-animation {
+        text-align: center;
         overflow: hidden; 
         white-space: nowrap;
         border-right: .15em solid orange;
