@@ -247,7 +247,7 @@ section p strong {
         align-items: center;
         margin-left: 15px;
     }
- .typing-animation {
+    .typing-animation {
         font-size: 23px;
         overflow: hidden; 
         white-space: nowrap;
@@ -255,8 +255,8 @@ section p strong {
         animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
         width: 0;
         animation-fill-mode: forwards;
-        max-width: 365px;
-        min-width: 365px;
+        max-width: 360px;
+        min-width: 360px;
     }
     
     @keyframes typing {
