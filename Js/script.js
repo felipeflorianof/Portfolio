@@ -23,9 +23,12 @@ controls.forEach((control) => {
 
     items.forEach((item) => item.classList.remove("current-item"));
 
+    const slideContainer = document.getElementById("slide-container");
+
     items[currentItem].scrollIntoView({
       behavior: "smooth",
-      inline: "center"
+      inline: "center",
+      block: "nearest"
     });
 
     items[currentItem].classList.add("current-item");
