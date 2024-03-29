@@ -224,7 +224,7 @@ section p strong {
         padding: 10px 0;
     }
     section {
-        margin: 10px auto;
+        margin: 10px;
         max-width: 100%;
     }
     .typing-animation {
@@ -256,7 +256,7 @@ section p strong {
         width: 0;
         animation-fill-mode: forwards;
         max-width: 365px;
-        min-width: 360px;
+        min-width: 365px;
     }
     
     @keyframes typing {
