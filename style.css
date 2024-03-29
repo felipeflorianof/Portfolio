@@ -256,7 +256,6 @@ section p strong {
         width: 0;
         animation-fill-mode: forwards;
         max-width: 360px;
-        min-width: 360px;
     }
     
     @keyframes typing {
