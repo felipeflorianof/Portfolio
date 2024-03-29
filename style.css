@@ -228,11 +228,10 @@ section p strong {
         margin: 10px;
         max-width: 100%;
     }
-    .container-elephant{
-        position: absolute;
-        top: 30%;
-        right: 50%;
-        left: 50%;
+    .Elephant {
+        margin: auto;
+        display: block; /* Garante que o SVG seja exibido como um bloco */
+        width: 300px; /* Ajuste conforme necessário */
     }
     .footer-icons {
         margin: 0 5px;
@@ -299,11 +298,10 @@ section p strong {
         50% { border-color: orange; }
     }
 
-    .container-elephant{
-        position: absolute;
-        top: 30%;
-        right: 50%;
-        left: 50%;
+    .Elephant {
+        margin: auto;
+        display: block; /* Garante que o SVG seja exibido como um bloco */
+        width: 300px; /* Ajuste conforme necessário */
     }
 }
 
@@ -339,10 +337,9 @@ section p strong {
         50% { border-color: orange; }
     }
 
-    .container-elephant{
-        position: absolute;
-        top: 30%;
-        right: 50%;
-        left: 50%;
+    .Elephant {
+        margin: auto;
+        display: block; /* Garante que o SVG seja exibido como um bloco */
+        width: 300px; /* Ajuste conforme necessário */
     }
 }
