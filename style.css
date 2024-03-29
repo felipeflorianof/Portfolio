@@ -228,11 +228,11 @@ section p strong {
         margin: 10px;
         max-width: 100%;
     }
-    .Elephant {
-        position: inherit;
-        top: 30%; /* Ajuste conforme necessário */
-        margin: auto;
-        width: 300px; /* Ajuste conforme necessário */
+    .container-elephant{
+        position: absolute;
+        top: 30%;
+        right: 50%;
+        left: 50%;
     }
     .footer-icons {
         margin: 0 5px;
@@ -299,11 +299,11 @@ section p strong {
         50% { border-color: orange; }
     }
 
-    .Elephant {
-        position: inherit;
-        top: 30%; /* Ajuste conforme necessário */
-        margin: auto;
-        width: 300px; /* Ajuste conforme necessário */
+    .container-elephant{
+        position: absolute;
+        top: 30%;
+        right: 50%;
+        left: 50%;
     }
 }
 
@@ -339,10 +339,10 @@ section p strong {
         50% { border-color: orange; }
     }
 
-    .Elephant {
-        position: inherit;
-        top: 30%; /* Ajuste conforme necessário */
-        margin: auto;
-        width: 300px; /* Ajuste conforme necessário */
+    .container-elephant{
+        position: absolute;
+        top: 30%;
+        right: 50%;
+        left: 50%;
     }
 }
