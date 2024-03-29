@@ -193,7 +193,6 @@ section p strong {
     top: 30%;
     right: 50%;
     left: 50%;
-
 }
 .Elephant {
     animation: float 3s ease-out infinite;
@@ -230,7 +229,10 @@ section p strong {
         max-width: 100%;
     }
     .Elephant {
-        margin-left: 10px;
+        position: inherit;
+        top: 30%; /* Ajuste conforme necessário */
+        margin: auto;
+        width: 300px; /* Ajuste conforme necessário */
     }
     .footer-icons {
         margin: 0 5px;
@@ -298,8 +300,10 @@ section p strong {
     }
 
     .Elephant {
-        margin-left: 10px;
-        width: 300px;
+        position: inherit;
+        top: 30%; /* Ajuste conforme necessário */
+        margin: auto;
+        width: 300px; /* Ajuste conforme necessário */
     }
 }
 
@@ -336,7 +340,9 @@ section p strong {
     }
 
     .Elephant {
-        margin-left: -10px;
-        width: 300px;
+        position: inherit;
+        top: 30%; /* Ajuste conforme necessário */
+        margin: auto;
+        width: 300px; /* Ajuste conforme necessário */
     }
 }
