@@ -1,2 +1,4 @@
 # Portfolio
-My Website where I'm going to be uploading the main projects that I do
+Welcome to my portfolio! Explore a range of projects demonstrating my abilities in web development.
+
+``felipefontesportfolio.netlify.app``
