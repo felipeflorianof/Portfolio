@@ -230,8 +230,8 @@ section p strong {
     }
     .Elephant {
         margin: auto;
-        display: block; /* Garante que o SVG seja exibido como um bloco */
-        width: 300px; /* Ajuste conforme necessário */
+        display: block; 
+        width: 300px; 
     }
     .footer-icons {
         margin: 0 5px;
@@ -253,7 +253,7 @@ section p strong {
         animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
         width: 0;
         animation-fill-mode: forwards;
-        max-width: 350px;
+        max-width: 100%;
     }
     
     @keyframes typing {
@@ -300,8 +300,8 @@ section p strong {
 
     .Elephant {
         margin: auto;
-        display: block; /* Garante que o SVG seja exibido como um bloco */
-        width: 300px; /* Ajuste conforme necessário */
+        display: block; 
+        width: 300px; 
     }
 }
 
@@ -323,7 +323,7 @@ section p strong {
         animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
         width: 0;
         animation-fill-mode: forwards;
-        font-size: 16.5px; /* Reduza ainda mais o tamanho da fonte para melhor ajuste em telas menores */
+        font-size: 16.5px;
         max-width: 100%; 
     }
 
@@ -339,7 +339,7 @@ section p strong {
 
     .Elephant {
         margin: auto;
-        display: block; /* Garante que o SVG seja exibido como um bloco */
-        width: 300px; /* Ajuste conforme necessário */
+        display: block; 
+        width: 300px; 
     }
 }
