@@ -59,20 +59,12 @@ section p strong {
     color: white;
 }
 
-/* Class */
-
 .container {
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.Elephant {
-  margin-left: 270px;
-}
-
-
-/* Slide */
 .container-slide {
     position: relative;
     padding: 15px;
@@ -141,205 +133,59 @@ section p strong {
     cursor: pointer;
 }
 
+.active-language {
+    background-color: #0d6efd; 
+    color: white;
+    border-color: #0d6efd; 
+}
 
-
-/* Title Animation */
 .typing-animation {
-    text-align: center;
+    text-align: left;
     overflow: hidden;
     white-space: nowrap;
-    border-right: .15em solid orange;
     font-size: 24px;
-    animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
+    animation: typing 4s steps(100, end);
     width: 0;
     animation-fill-mode: forwards;
-    max-width: 380px;
+    width: 100%;
 }
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blinkCursor { from, to { border-color: transparent; } 50% { border-color: orange; } }
 
-
-
-/* Java Animation */
-#animation {
-    width: 200px;
-    margin-left: 928px;
+.typing-animation.blink {
+    animation: blinkCursor .75s infinite alternate;
 }
-.showRoll #frame {
-    border-color: hsl(0,0%,70%);
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
-#roll {
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 10px; 
+    translate: 1 50%;
+}
+
+.gallery svg, .gallery img {
     display: inline-block;
+    animation: float 3s ease-in-out infinite;
 }
-#frame {
-    width: 50px;
-    height: 72px;
-    border: 1px solid transparent;
-    background: url(https://s.cdpn.io/79/sprite-steps.png) no-repeat left top;
-    animation: frame-animation 1s steps(10) infinite;    
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
-#goodbye-java {
+
+#top_footer_text {
     text-align: center;
     font-weight: bold;
-}
-
-@keyframes frame-animation { 0% { background-position: 0px 0; } 100% { background-position: -500px 0; } }
-
-
-
-/* php Animation */
-.container-elephant{
-    position: absolute;
-    top: 30%;
-    right: 50%;
-    left: 50%;
-}
-.Elephant {
-    animation: float 3s ease-out infinite;
-}
-@keyframes float { 50% { transform: translate(0, 20px); } }
-@keyframes shrink { 0% { width: 90%; margin: 0 5%; } 50% { width: 60%; margin: 0 18%; } 100% { width: 90%; margin: 0 5%; } }
-
-
-
-/* Mobile*/
-@media only screen and (max-width: 949px) {
-    .container {
-        padding: 10px;
-        max-width: 100%;
-    }
-    header {
-        width: 100%;
-        padding: 10px 0;
-    }
-    nav {
-        display: block;
-        text-align: center;
-    }
-    nav a {
-        display: inline-block;
-        margin: 10px;
-    }
-    footer {
-        padding: 10px 0;
-        text-align: center;
-    }
-    section {
-        margin: 10px;
-        max-width: 100%;
-    }
-    .Elephant {
-        margin: auto;
-        display: block; 
-        width: 300px; 
-    }
-    .footer-icons {
-        margin: 0 5px;
-    }
-    #animation {
-        width: 200px;
-        margin: 0 auto;
-    }
-    #goodbye-java {
-        text-align: center;
-        margin: 20px;
-    }
-    .typing-animation {
-        text-align: center;
-        font-size: 22px;
-        overflow: hidden; 
-        white-space: nowrap;
-        border-right: .15em solid orange;
-        animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
-        width: 0;
-        animation-fill-mode: forwards;
-        max-width: 100%;
-    }
-    
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-    }
-    
-    @keyframes blinkCursor {
-        from, to { border-color: transparent; }
-        50% { border-color: orange; }
-    }
-
-}
-
-@media only screen and (max-width: 370px) {
-    /* Estilos específicos para dispositivos com largura máxima de 320px (mobile) */
-
-    section {
-        margin: 10px;
-        max-width: 100%;
-    }
-
-    .typing-animation {
-        text-align: center;
-        overflow: hidden; 
-        white-space: nowrap;
-        border-right: .15em solid orange;
-        animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
-        width: 0;
-        animation-fill-mode: forwards;
-        font-size: 21.5px; /* Reduza ainda mais o tamanho da fonte para melhor ajuste em telas menores */
-        max-width: 100%; 
-    }
-
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-    }
-    
-    @keyframes blinkCursor {
-        from, to { border-color: transparent; }
-        50% { border-color: orange; }
-    }
-
-    .Elephant {
-        margin: auto;
-        display: block; 
-        width: 300px; 
-    }
-}
-
-
-
-@media only screen and (max-width: 280px) {
-    /* Estilos específicos para dispositivos com largura máxima de 320px (mobile) */
-
-    section {
-        margin: 10px;
-        max-width: 100%;
-    }
-
-    .typing-animation {
-        text-align: center;
-        overflow: hidden; 
-        white-space: nowrap;
-        border-right: .15em solid orange;
-        animation: typing 2s steps(100, end), blinkCursor .75s infinite alternate;
-        width: 0;
-        animation-fill-mode: forwards;
-        font-size: 16.5px;
-        max-width: 100%; 
-    }
-
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-    }
-    
-    @keyframes blinkCursor {
-        from, to { border-color: transparent; }
-        50% { border-color: orange; }
-    }
-
-    .Elephant {
-        margin: auto;
-        display: block; 
-        width: 300px; 
-    }
 }
