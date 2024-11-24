@@ -133,10 +133,10 @@ section p strong {
     cursor: pointer;
 }
 
-.active-language {
-    background-color: #0d6efd; 
-    color: white;
-    border-color: #0d6efd; 
+button.active-language {
+    background-color: #0d6efd !important; 
+    color: white !important;
+    border-color: #0d6efd !important;
 }
 
 .typing-animation {

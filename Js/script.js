@@ -40,7 +40,7 @@ const languagePt = document.getElementById("language-pt");
 
 const texts = {
     pt: {
-        greeting: "Olá Mundo 🧛🏽‍♂️, Meu nome é Felipe;",
+        greeting: "Olá Mundo 🧛🏽‍♂️, Eu sou o Felipe;",
         about: "Desenvolvedor de software apaixonado por criar soluções robustas e escaláveis. Trabalho remotamente desde março de 2023, integrando conhecimento técnico e práticas modernas para construir projetos de alto impacto.",
         experienceTitle: "Experiência Profissional",
         company: "Desenvolvedor de Software - Tempo Integral",
@@ -48,7 +48,7 @@ const texts = {
         top_footer_text: "Confira minha entrevista com o jornal",
     },
     en: {
-        greeting: "Hello World 🧛🏽‍♂️, My name is Felipe;",
+        greeting: "Hello World 🧛🏽‍♂️, I'm Felipe;",
         about: "Software developer passionate about creating robust and scalable solutions. I've been working remotely since March 2023, integrating technical knowledge and modern practices to build high-impact projects.",
         experienceTitle: "Professional Experience",
         company: "Software Developer - Full Time",
@@ -74,11 +74,13 @@ function setActiveButton(activeButton, inactiveButton) {
 languageEn.addEventListener("click", function () {
     updateText("en");
     setActiveButton(languageEn, languagePt);
+    this.blur();
 });
 
 languagePt.addEventListener("click", function () {
     updateText("pt");
     setActiveButton(languagePt, languageEn);
+    this.blur();
 });
 
 updateText("en");
