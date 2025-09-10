@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-bottom: 60px;
     background-color: #E2E7F3;
 }
 
@@ -28,6 +29,12 @@ footer{
     border-top: solid 1px rgba(255, 255, 255, 0.452);
     text-align: center;
     padding: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 section {
@@ -161,11 +168,171 @@ button.active-language {
 
 .gallery {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    gap: 10px; 
+    gap: 5px; 
     translate: 1 50%;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.gallery-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 100px;
+    max-width: 800px;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    .gallery-row {
+        gap: 15px;
+        max-width: 90%;
+        min-height: 80px;
+    }
+    
+    .gallery {
+        gap: 3px;
+        padding: 0 15px;
+    }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 480px) {
+    .gallery-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 95%;
+        min-height: 60px;
+    }
+    
+    .gallery {
+        gap: 8px;
+        padding: 0 20px;
+    }
+}
+
+.gallery-row svg,
+.gallery-row img {
+    flex-shrink: 0;
+    object-fit: contain;
+    width: 180px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Alinhamento específico para centralizar JS com elefante */
+.gallery-row:first-child {
+    margin-bottom: 5px;
+}
+
+.gallery-row:last-child {
+    margin-top: 5px;
+}
+
+/* Tamanhos específicos para cada logo - Desktop */
+.logo-wordpress {
+    width: 200px !important;
+    height: 100px !important;
+}
+
+.logo-php {
+    width: 120px !important;
+    height: 140px !important;
+}
+
+.logo-laravel {
+    width: 180px !important;
+    height: 190px !important;
+}
+
+.logo-angular {
+    width: 160px !important;
+    height: 80px !important;
+}
+
+.logo-javascript {
+    width: 100px !important;
+    height: 80px !important;
+}
+
+.logo-mysql {
+    width: 140px !important;
+    height: 90px !important;
+}
+
+/* Tamanhos para tablets */
+@media (max-width: 768px) {
+    .logo-wordpress {
+        width: 160px !important;
+        height: 80px !important;
+    }
+
+    .logo-php {
+        width: 90px !important;
+        height: 110px !important;
+    }
+
+    .logo-laravel {
+        width: 140px !important;
+        height: 150px !important;
+    }
+
+    .logo-angular {
+        width: 130px !important;
+        height: 65px !important;
+    }
+
+    .logo-javascript {
+        width: 80px !important;
+        height: 65px !important;
+    }
+
+    .logo-mysql {
+        width: 110px !important;
+        height: 70px !important;
+    }
+}
+
+/* Tamanhos para mobile */
+@media (max-width: 480px) {
+    .logo-wordpress {
+        width: 180px !important;
+        height: 90px !important;
+    }
+
+    .logo-php {
+        width: 100px !important;
+        height: 120px !important;
+    }
+
+    .logo-laravel {
+        width: 160px !important;
+        height: 170px !important;
+    }
+
+    .logo-angular {
+        width: 140px !important;
+        height: 70px !important;
+    }
+
+    .logo-javascript {
+        width: 90px !important;
+        height: 70px !important;
+    }
+
+    .logo-mysql {
+        width: 120px !important;
+        height: 80px !important;
+    }
 }
 
 .gallery svg, .gallery img {

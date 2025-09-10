@@ -40,19 +40,19 @@ const languagePt = document.getElementById("language-pt");
 
 const texts = {
     pt: {
-        greeting: "Olá Mundo 🧛🏽‍♂️, Eu sou o Felipe;",
-        about: "Desenvolvedor de software apaixonado por criar soluções robustas e escaláveis. Trabalho remotamente desde março de 2023, integrando conhecimento técnico e práticas modernas para construir projetos de alto impacto.",
+        greeting: "Olá Mundo, Me chamo Felipe;",
+        about: "Desenvolvedor de software apaixonado por criar soluções robustas e escaláveis. Trabalho remotamente desde 2023, integrando conhecimento técnico e práticas modernas para construir projetos de alto impacto.",
         experienceTitle: "Experiência Profissional",
         company: "Desenvolvedor de Software - Tempo Integral",
-        description: "Na Claro, atuo no desenvolvimento de sistemas usando tecnologias essenciais como PHP com WordPress e Laravel, além de Java com Spring Boot. Tenho uma base sólida em SQL e foco na construção de soluções eficientes para ambientes dinâmicos e de grande escala. Minha experiência me permite unir desempenho e funcionalidade em projetos que fazem a diferença.",
+        description: "Na Claro, especializo-me em desenvolvimento de sistemas, entregando soluções de alto desempenho para ambientes dinâmicos e de grande escala. Minha expertise em Angular permite criar aplicações front-end responsivas e centradas no usuário, que se integram perfeitamente aos sistemas back-end. Utilizo PHP com WordPress e Laravel para construir soluções server-side robustas e escaláveis, enquanto minha proficiência em SQL garante uma gestão de dados eficiente e desempenho otimizado. Com um forte foco em Angular para desenvolver interfaces dinâmicas e intuitivas, crio soluções impactantes que impulsionam o sucesso dos negócios.",
         top_footer_text: "Confira minha entrevista com o jornal",
     },
     en: {
-        greeting: "Hello World 🧛🏽‍♂️, I'm Felipe;",
-        about: "Software developer passionate about creating robust and scalable solutions. I've been working remotely since March 2023, integrating technical knowledge and modern practices to build high-impact projects.",
+        greeting: "Hello World, I'm Felipe;",
+        about: "Software developer passionate about creating robust and scalable solutions. I've been working remotely since 2023, integrating technical knowledge and modern practices to build high-impact projects.",
         experienceTitle: "Professional Experience",
         company: "Software Developer - Full Time",
-        description: "At Claro, I work on system development using essential technologies like PHP with WordPress and Laravel, as well as Java with Spring Boot. I have a strong foundation in SQL and focus on building efficient solutions for dynamic and large-scale environments. My experience enables me to combine performance and functionality in projects that make a difference.",
+        description: "At Claro, I specialize in system development, delivering high-performance solutions for dynamic, large-scale environments. My expertise in Angular allows me to craft responsive, user-centric front-end applications that seamlessly integrate with back-end systems. I leverage PHP with WordPress and Laravel to build robust, scalable server-side solutions, while my proficiency in SQL ensures efficient data management and optimized performance. With a strong focus on Angular for creating dynamic and intuitive user interfaces, I develop impactful solutions that drive business success.",
         top_footer_text: "Check out my interview with the newspaper",
     }
 };
