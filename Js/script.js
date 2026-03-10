@@ -11,7 +11,7 @@ const texts = {
         navPortfolio: "Portfolio",
         portfolioHeading: "Trabalhos em destaque",
         project1Title: "Claro Marketplace PME",
-        project1Tech: "Angular · TypeScript",
+        project1Tech: "Angular",
         project2Title: "Claro Controle de frotas",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
         projectCardCta: "Clique para saber mais",
@@ -19,8 +19,6 @@ const texts = {
         experienceRole: "Desenvolvedor de Software · Claro",
         experienceDuration: " · +3 anos",
         experienceDescription: "Desenvolvimento e evolução de sistemas corporativos em ambiente de grande escala. Responsável por interfaces em Angular, APIs e integrações em PHP/Laravel e modelagem de dados com SQL. Atuação em decisões técnicas, qualidade de código e entrega de valor em time.",
-        stackLabel: "Tecnologias",
-        stackList: "Angular · TypeScript · Laravel · PHP · SQL",
         backToTop: "↑ Voltar ao topo",
     },
     en: {
@@ -31,7 +29,7 @@ const texts = {
         navPortfolio: "Portfolio",
         portfolioHeading: "Featured work",
         project1Title: "Claro Marketplace PME",
-        project1Tech: "Angular · TypeScript",
+        project1Tech: "Angular",
         project2Title: "Claro Fleet control system",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
         projectCardCta: "Click to learn more",
@@ -39,8 +37,6 @@ const texts = {
         experienceRole: "Software Developer · Claro",
         experienceDuration: " · 3+ years",
         experienceDescription: "Design and evolution of corporate systems in large-scale environments. Ownership of Angular front-ends, PHP/Laravel APIs and integrations, and SQL data modeling. Involved in technical decisions, code quality, and delivery as part of the team.",
-        stackLabel: "Stack",
-        stackList: "Angular · TypeScript · Laravel · PHP · SQL",
         backToTop: "↑ Back to top",
     },
     fr: {
@@ -51,7 +47,7 @@ const texts = {
         navPortfolio: "Portfolio",
         portfolioHeading: "Réalisations",
         project1Title: "Claro Marketplace PME",
-        project1Tech: "Angular · TypeScript",
+        project1Tech: "Angular",
         project2Title: "Claro Système de gestion de flotte",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
         projectCardCta: "Cliquez pour en savoir plus",
@@ -59,8 +55,6 @@ const texts = {
         experienceRole: "Développeur de logiciels · Claro",
         experienceDuration: " · +3 ans",
         experienceDescription: "Conception et évolution de systèmes d'entreprise à grande échelle. Responsable des interfaces Angular, des API et intégrations PHP/Laravel, et de la modélisation des données en SQL. Impliqué dans les décisions techniques, la qualité du code et la livraison en équipe.",
-        stackLabel: "Technologies",
-        stackList: "Angular · TypeScript · Laravel · PHP · SQL",
         backToTop: "↑ Retour en haut",
     },
 };
@@ -82,8 +76,6 @@ function updateText(language) {
     document.querySelector(".experience-role strong").textContent = t.experienceRole;
     document.querySelectorAll("[data-i18n='experienceDuration']").forEach(function (el) { el.textContent = t.experienceDuration; });
     document.querySelector(".experience-description").textContent = t.experienceDescription;
-    document.querySelectorAll("[data-i18n='stackLabel']").forEach(function (el) { el.textContent = t.stackLabel; });
-    document.querySelectorAll("[data-i18n='stackList']").forEach(function (el) { el.textContent = t.stackList; });
     document.getElementById("back-to-top").textContent = t.backToTop;
 }
 
@@ -136,7 +128,7 @@ document.addEventListener("click", function (e) {
 
 // Animação ao rolar: seções entram quando aparecem na tela
 (function () {
-    var sections = document.querySelectorAll(".stack-section, .portfolio-section, .experience-section");
+    var sections = document.querySelectorAll(".quote-section, .portfolio-section, .experience-section");
     if (!sections.length) return;
     var observer = new IntersectionObserver(
         function (entries) {

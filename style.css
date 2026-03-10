@@ -239,20 +239,6 @@ button.active-language {
     left: 0;
 }
 
-.hero-quote {
-    margin: 28px 0 0;
-    font-size: 0.875rem;
-    font-style: italic;
-    color: var(--text-muted);
-    opacity: 0;
-    transform: translateY(10px);
-    position: relative;
-}
-
-.hero.hero-loaded .hero-quote {
-    animation: heroFadeUp 0.5s ease-out 0.6s forwards;
-}
-
 @keyframes heroCtaIdle {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.82; }
@@ -434,8 +420,8 @@ button.active-language {
     line-height: 1.65;
 }
 
-/* ========== Stack (minimal) ========== */
-.stack-section {
+/* ========== Quote (wabi-sabi) ========== */
+.quote-section {
     max-width: 720px;
     margin: 36px auto 48px;
     text-align: center;
@@ -444,27 +430,16 @@ button.active-language {
     transition: opacity 0.45s ease-out, transform 0.45s ease-out;
 }
 
-.stack-section.in-view {
+.quote-section.in-view {
     opacity: 1;
     transform: translateY(0);
 }
 
-.stack-label {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    margin: 0 0 10px;
-    opacity: 0.85;
-}
-
-.stack-list {
-    font-size: 0.875rem;
+.site-quote {
+    font-size: 0.9375rem;
+    font-style: italic;
     color: var(--text-muted);
     margin: 0;
-    letter-spacing: 0.02em;
-    line-height: 1.6;
 }
 
 /* ========== Interview CTA ========== */
