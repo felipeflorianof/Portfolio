@@ -81,9 +81,13 @@ function render(projectKey) {
     backEl.textContent = backLabel[lang];
     var search = new URLSearchParams(window.location.search);
     var fromScroll = search.get("from_scroll");
+    if (fromScroll) {
+        try { sessionStorage.setItem("portfolio-scroll", fromScroll); } catch (e) {}
+    }
     var basePath = window.location.pathname.replace(/\/[^/]*$/, "") || "/";
     var indexUrl = basePath === "/" ? "/" : basePath + "/";
-    backEl.href = fromScroll ? indexUrl + "#scroll=" + encodeURIComponent(fromScroll) : indexUrl;
+    backEl.href = indexUrl;
+    backEl.setAttribute("data-scroll", fromScroll || "");
     if (fromScroll && typeof history !== "undefined" && history.replaceState) {
         search.delete("from_scroll");
         var qs = search.toString();
@@ -124,14 +128,22 @@ function init() {
         });
     });
 
-    // Fade out ao clicar em link para index
+    // Fade out ao clicar em link para index; "Voltar" grava scroll no sessionStorage para o index restaurar
     document.addEventListener("click", function (e) {
         var a = e.target.closest("a[href*='index.html'], a.work-back");
         if (!a || a.target === "_blank") return;
-        var href = a.getAttribute("href");
-        if (!href || href.indexOf("index.html") === -1) return;
+        var href = (a.getAttribute("href") || a.href || "").split("#")[0];
+        var isBack = a.id === "work-back" || a.classList.contains("work-back");
+        var goesToIndex = isBack || (href && (href.indexOf("index.html") !== -1 || href === "/" || href.slice(-1) === "/"));
+        if (!goesToIndex) return;
         if (a.origin && a.origin !== window.location.origin) return;
         e.preventDefault();
+        if (isBack) {
+            try {
+                var scrollVal = a.getAttribute("data-scroll") || "";
+                if (scrollVal) sessionStorage.setItem("portfolio-scroll", scrollVal);
+            } catch (err) {}
+        }
         document.body.classList.add("page-fade-out");
         var targetHref = a.getAttribute("href") || a.href;
         setTimeout(function () { window.location.href = targetHref; }, 260);

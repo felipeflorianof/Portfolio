@@ -1,10 +1,18 @@
 if (typeof history !== "undefined" && history.scrollRestoration) history.scrollRestoration = "manual";
 var savedScrollY = null;
 (function () {
-    var hash = window.location.hash;
-    if (hash) {
-        var m = hash.match(/^#scroll=(\d+)$/);
-        if (m) {
+    try {
+        var s = sessionStorage.getItem("portfolio-scroll");
+        if (s !== null && s !== "") {
+            sessionStorage.removeItem("portfolio-scroll");
+            var n = parseInt(s, 10);
+            if (!isNaN(n) && n >= 0) savedScrollY = n;
+        }
+    } catch (e) {}
+    if (savedScrollY === null) {
+        var hash = window.location.hash;
+        if (hash && (hash.match(/^#scroll=(\d+)$/))) {
+            var m = hash.match(/^#scroll=(\d+)$/);
             var n = parseInt(m[1], 10);
             if (!isNaN(n) && n >= 0) savedScrollY = n;
         }
@@ -139,6 +147,8 @@ window.addEventListener("load", function () {
     if (savedScrollY != null) {
         window.scrollTo(0, savedScrollY);
         setTimeout(function () { window.scrollTo(0, savedScrollY); }, 50);
+        setTimeout(function () { window.scrollTo(0, savedScrollY); }, 150);
+        setTimeout(function () { window.scrollTo(0, savedScrollY); }, 400);
     } else window.scrollTo(0, 0);
 });
 
