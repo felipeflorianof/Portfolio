@@ -1,27 +1,5 @@
 if (typeof history !== "undefined" && history.scrollRestoration) history.scrollRestoration = "manual";
-var savedScrollY = null;
-(function () {
-    try {
-        var s = sessionStorage.getItem("portfolio-scroll");
-        if (s !== null && s !== "") {
-            sessionStorage.removeItem("portfolio-scroll");
-            var n = parseInt(s, 10);
-            if (!isNaN(n) && n >= 0) savedScrollY = n;
-        }
-    } catch (e) {}
-    if (savedScrollY === null) {
-        var hash = window.location.hash;
-        if (hash && (hash.match(/^#scroll=(\d+)$/))) {
-            var m = hash.match(/^#scroll=(\d+)$/);
-            var n = parseInt(m[1], 10);
-            if (!isNaN(n) && n >= 0) savedScrollY = n;
-        }
-    }
-    if (savedScrollY !== null && typeof history !== "undefined" && history.replaceState) {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-    }
-})();
-if (!savedScrollY) window.scrollTo(0, 0);
+if (window.location.hash !== "#portfolio") window.scrollTo(0, 0);
 
 const languageEn = document.getElementById("language-en");
 const languageFr = document.getElementById("language-fr");
@@ -135,21 +113,11 @@ requestAnimationFrame(function () {
     if (hero) hero.classList.add("hero-loaded");
 });
 
-// Fade in ao carregar; restaura scroll ao voltar do work (após load para Netlify/CDN)
+// Fade in ao carregar
 requestAnimationFrame(function () {
     requestAnimationFrame(function () {
         document.body.classList.remove("fade-in-load");
-        if (savedScrollY != null) window.scrollTo(0, savedScrollY);
-        else window.scrollTo(0, 0);
     });
-});
-window.addEventListener("load", function () {
-    if (savedScrollY != null) {
-        window.scrollTo(0, savedScrollY);
-        setTimeout(function () { window.scrollTo(0, savedScrollY); }, 50);
-        setTimeout(function () { window.scrollTo(0, savedScrollY); }, 150);
-        setTimeout(function () { window.scrollTo(0, savedScrollY); }, 400);
-    } else window.scrollTo(0, 0);
 });
 
 // Fade out ao clicar em link para work.html
@@ -157,10 +125,8 @@ document.addEventListener("click", function (e) {
     var a = e.target.closest("a[href*='work.html']");
     if (!a || a.target === "_blank" || a.host !== window.location.host) return;
     e.preventDefault();
-    var scrollY = Math.round(window.scrollY);
-    var url = a.href.indexOf("?") >= 0 ? a.href + "&from_scroll=" + scrollY : a.href + "?from_scroll=" + scrollY;
     document.body.classList.add("page-fade-out");
-    setTimeout(function () { window.location.href = url; }, 260);
+    setTimeout(function () { window.location.href = a.href; }, 260);
 });
 
 // Animação ao rolar: seções entram quando aparecem na tela

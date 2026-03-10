@@ -79,20 +79,9 @@ function render(projectKey) {
     document.getElementById("work-image").alt = data.title;
     var backEl = document.getElementById("work-back");
     backEl.textContent = backLabel[lang];
-    var search = new URLSearchParams(window.location.search);
-    var fromScroll = search.get("from_scroll");
-    if (fromScroll) {
-        try { sessionStorage.setItem("portfolio-scroll", fromScroll); } catch (e) {}
-    }
     var basePath = window.location.pathname.replace(/\/[^/]*$/, "") || "/";
     var indexUrl = basePath === "/" ? "/" : basePath + "/";
-    backEl.href = indexUrl + (fromScroll ? "#scroll=" + encodeURIComponent(fromScroll) : "");
-    backEl.setAttribute("data-scroll", fromScroll || "");
-    if (fromScroll && typeof history !== "undefined" && history.replaceState) {
-        search.delete("from_scroll");
-        var qs = search.toString();
-        history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : ""));
-    }
+    backEl.href = indexUrl + "#portfolio";
     var backToTopEl = document.getElementById("work-back-to-top");
     if (backToTopEl) backToTopEl.textContent = backToTopLabel[lang] || backToTopLabel.en;
     document.title = data.title + " — Felipe Fontes";
@@ -128,7 +117,7 @@ function init() {
         });
     });
 
-    // Fade out ao clicar em link para index; "Voltar" grava scroll no sessionStorage para o index restaurar
+    // Fade out ao clicar em link para index
     document.addEventListener("click", function (e) {
         var a = e.target.closest("a[href*='index.html'], a.work-back");
         if (!a || a.target === "_blank") return;
@@ -138,12 +127,6 @@ function init() {
         if (!goesToIndex) return;
         if (a.origin && a.origin !== window.location.origin) return;
         e.preventDefault();
-        if (isBack) {
-            try {
-                var scrollVal = a.getAttribute("data-scroll") || "";
-                if (scrollVal) sessionStorage.setItem("portfolio-scroll", scrollVal);
-            } catch (err) {}
-        }
         document.body.classList.add("page-fade-out");
         var targetHref = a.getAttribute("href") || a.href;
         setTimeout(function () { window.location.href = targetHref; }, 260);
