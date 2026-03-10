@@ -10,20 +10,27 @@
     <link rel="stylesheet" href="style.css">
     <title>Felipe Fontes — Portfolio</title>
 </head>
-<body>
+<body class="fade-in-load">
     <main>
         <section id="hero" class="hero">
             <nav class="site-nav site-nav--hero">
                 <a href="#portfolio" class="nav-link" data-i18n="navPortfolio">Portfolio</a>
                 <div class="lang-toggle">
                     <button id="language-en" class="btn btn-secondary btn-sm active-language">EN</button>
+                    <button id="language-fr" class="btn btn-secondary btn-sm">FR</button>
                     <button id="language-pt" class="btn btn-secondary btn-sm">PT</button>
-                </div>
+        </div>
             </nav>
             <p class="hero-subtitle"></p>
             <h1 class="hero-title"></h1>
             <a href="#portfolio" class="hero-cta scroll-link"></a>
-        </section>
+            <p class="hero-quote" data-i18n="heroQuote"></p>
+    </section>
+    
+        <section class="stack-section">
+            <p class="stack-label" data-i18n="stackLabel">Stack</p>
+            <p class="stack-list" data-i18n="stackList">Angular · TypeScript · Laravel · PHP · SQL</p>
+    </section>
 
         <section id="portfolio" class="portfolio-section">
             <h2 class="portfolio-heading" data-i18n="portfolioHeading">Some of my work</h2>
@@ -31,28 +38,32 @@
                 <a href="work.html?p=equipe" class="project-card project-card-link">
                     <div class="project-image-wrap">
                         <img class="project-image" src="https://picsum.photos/400/260?random=2" alt="">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-title" data-i18n="project1Title">Marketplace PME</span>
-                        <span class="project-tech" data-i18n="project1Tech">Angular · TypeScript</span>
+                        <div class="project-info">
+                            <span class="project-title" data-i18n="project1Title">Claro Marketplace PME</span>
+                            <span class="project-cta" data-i18n="projectCardCta">Clique para saber mais</span>
+                            <span class="project-tech" data-i18n="project1Tech">Angular · TypeScript</span>
+                        </div>
                     </div>
                 </a>
                 <a href="work.html?p=manutencao" class="project-card project-card-link">
                     <div class="project-image-wrap">
                         <img class="project-image" src="https://picsum.photos/400/260?random=1" alt="">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-title" data-i18n="project2Title">Controle de frotas</span>
-                        <span class="project-tech" data-i18n="project2Tech">SQL · Laravel · PHP</span>
+                        <div class="project-info">
+                            <span class="project-title" data-i18n="project2Title">Claro Controle de frotas</span>
+                            <span class="project-cta" data-i18n="projectCardCta">Clique para saber mais</span>
+                            <span class="project-tech" data-i18n="project2Tech">Front · Back · SQL · Laravel · PHP</span>
+                        </div>
                     </div>
                 </a>
             </div>
         </section>
 
         <section id="experience" class="experience-section">
-            <h2 class="experience-heading"></h2>
-            <p class="experience-role"><strong></strong></p>
-            <p class="experience-description"></p>
+            <h2 class="experience-heading" data-i18n="experienceHeading"></h2>
+            <div class="experience-card">
+                <p class="experience-role"><strong></strong><span class="experience-duration" data-i18n="experienceDuration"></span></p>
+                <p class="experience-description"></p>
+            </div>
         </section>
 
         <a href="#hero" id="back-to-top" class="back-to-top scroll-link"></a>
@@ -60,10 +71,11 @@
         <footer class="site-footer">
             <span class="footer-name">Felipe Fontes</span>
             <a href="https://www.linkedin.com/in/felipeflorianofontes/" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-link">LinkedIn</a>
+            <a href="mailto:felipeflorianof@gmail.com" class="footer-link" aria-label="Email">Gmail</a>
             <a href="https://github.com/felipeflorianof" target="_blank" rel="noopener" aria-label="GitHub" class="footer-link">GitHub</a>
-        </footer>
+</footer>
     </main>
 
-    <script src="Js/script.js"></script>
+<script src="Js/script.js"></script>
 </body>
 </html>

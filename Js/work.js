@@ -1,35 +1,49 @@
 const projects = {
     manutencao: {
         pt: {
-            title: "Controle de frotas",
-            tech: "SQL · Laravel · PHP",
+            title: "Claro Controle de frotas",
+            tech: "Front · Back · SQL · Laravel · PHP",
             image: "https://picsum.photos/800/450?random=1",
-            description: "Sistema interno de controle de frotas de veículos da empresa. Passado para mim com o foco em fazer funcionar: manutenção, correção de bugs e ajustes. Atuo sozinho no back-end. Stack: SQL, Laravel e PHP puro."
+            description: "Sistema interno de controle de frotas de veículos da empresa. Passado para mim com o foco em fazer funcionar: manutenção, correção de bugs e ajustes. Atuo sozinho em front-end, back-end e banco de dados. Stack: Laravel, PHP puro e SQL."
         },
         en: {
-            title: "Fleet control system",
-            tech: "SQL · Laravel · PHP",
+            title: "Claro Fleet control system",
+            tech: "Front · Back · SQL · Laravel · PHP",
             image: "https://picsum.photos/800/450?random=1",
-            description: "Internal vehicle fleet control system for the company. Handed to me with a \"make it work\" focus: maintenance, bug fixes, and adjustments. I work on it alone on the back-end. Stack: SQL, Laravel, and plain PHP."
+            description: "Internal vehicle fleet control system for the company. Handed to me with a \"make it work\" focus: maintenance, bug fixes, and adjustments. I work on it alone across front-end, back-end, and database. Stack: Laravel, plain PHP, and SQL."
+        },
+        fr: {
+            title: "Claro Système de gestion de flotte",
+            tech: "Front · Back · SQL · Laravel · PHP",
+            image: "https://picsum.photos/800/450?random=1",
+            description: "Système interne de gestion de flotte de véhicules pour l'entreprise. Confié avec l'objectif de maintenir le système en état de marche : maintenance, corrections et ajustements. J'interviens seul sur le front-end, le back-end et la base de données. Stack : Laravel, PHP et SQL."
         }
     },
     equipe: {
         pt: {
-            title: "Marketplace PME",
+            title: "Claro Marketplace PME",
             tech: "Angular · TypeScript",
             image: "https://picsum.photos/800/450?random=2",
-            description: "Marketplace para pequenas e médias empresas (PME), com centenas de milhares de usuários (100k+). Projeto em equipe. Atuo no front-end: interfaces em Angular com TypeScript, participando do desenho da solução, desenvolvimento e entrega."
+            description: "Atuo como desenvolvedor front-end neste projeto em equipe, com foco em interfaces em Angular e TypeScript (100k+ usuários). O objetivo do produto foi criar um ambiente de autoatendimento em que donos de negócio ou representantes de empresas pudessem comprar com facilidade produtos e serviços da Claro e de parceiros. O layout foi pensado para seguir a identidade visual da Claro, com adaptações que dão identidade própria ao produto e enxugam a jornada de venda. A escolha de planos e serviços é facilitada por um carrinho que processa as solicitações automaticamente. Todo o texto foi escrito em linha com boas práticas de SEO, éticas e eficazes."
         },
         en: {
-            title: "Marketplace PME",
+            title: "Claro Marketplace PME",
             tech: "Angular · TypeScript",
             image: "https://picsum.photos/800/450?random=2",
-            description: "Marketplace for small and medium businesses (SMB), with 100k+ users. Team project. I work on the front-end: Angular with TypeScript, involved in solution design, development, and delivery."
+            description: "I work as a front-end developer on this team project, building interfaces in Angular and TypeScript (100k+ users). The product goal was to create a self-service platform where business owners or company representatives could easily purchase products and services from Claro and its partners. The layout was designed to align with Claro's existing visual identity, with adaptations that give the product its own style and streamline the sales journey. Plan and service selection is supported by a shopping cart that processes requests automatically. All copy was written to follow ethical, effective SEO practices."
+        },
+        fr: {
+            title: "Claro Marketplace PME",
+            tech: "Angular · TypeScript",
+            image: "https://picsum.photos/800/450?random=2",
+            description: "J'interviens en tant que développeur front-end sur ce projet d'équipe, avec un focus sur les interfaces en Angular et TypeScript (plus de 100 000 utilisateurs). L'objectif du produit était de créer un environnement en libre-service où les chefs d'entreprise ou représentants d'entreprises puissent acheter facilement des produits et services Claro et de ses partenaires. La mise en page a été conçue pour s'aligner sur l'identité visuelle de Claro, avec des adaptations qui donnent au produit son propre style et simplifient le parcours de vente. Le choix des forfaits et des services est facilité par un panier qui traite les demandes automatiquement. Tous les textes ont été rédigés selon des pratiques SEO éthiques et efficaces."
         }
     }
 };
 
-const backLabel = { pt: "← Voltar ao portfolio", en: "← Back to portfolio" };
+const backLabel = { pt: "← Voltar ao portfolio", en: "← Back to portfolio", fr: "← Retour au portfolio" };
+const backToTopLabel = { pt: "↑ Voltar ao topo", en: "↑ Back to top", fr: "↑ Retour en haut" };
+const builtWithLabel = { pt: "Construído com", en: "Built with", fr: "Construit avec" };
 
 function getParam() {
     const params = new URLSearchParams(window.location.search);
@@ -38,57 +52,75 @@ function getParam() {
 }
 
 function getLang() {
-    return document.documentElement.lang.startsWith("en") ? "en" : "pt";
+    var lang = document.documentElement.lang;
+    if (lang.startsWith("fr")) return "fr";
+    if (lang.startsWith("en")) return "en";
+    return "pt";
 }
 
 function setLang(lang) {
-    document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+    var docLang = lang === "en" ? "en" : lang === "fr" ? "fr" : "pt-BR";
+    document.documentElement.lang = docLang;
     if (typeof localStorage !== "undefined") localStorage.setItem("portfolio-lang", lang);
 }
 
 function render(projectKey) {
     const key = projects[projectKey] ? projectKey : "equipe";
     const lang = getLang();
-    const data = projects[key][lang];
+    const data = projects[key][lang] || projects[key].en;
 
     document.getElementById("work-title").textContent = data.title;
-    document.getElementById("work-tech").textContent = data.tech;
+    document.getElementById("work-description").textContent = data.description;
+    document.getElementById("work-tech").textContent = (builtWithLabel[lang] || builtWithLabel.en) + " " + data.tech + ".";
     document.getElementById("work-image").src = data.image;
     document.getElementById("work-image").alt = data.title;
-    document.getElementById("work-description").textContent = data.description;
     document.getElementById("work-back").textContent = backLabel[lang];
+    var backToTopEl = document.getElementById("work-back-to-top");
+    if (backToTopEl) backToTopEl.textContent = backToTopLabel[lang] || backToTopLabel.en;
     document.title = data.title + " — Felipe Fontes";
 }
 
 function init() {
     const savedLang = typeof localStorage !== "undefined" && localStorage.getItem("portfolio-lang");
-    if (savedLang === "en" || savedLang === "pt") setLang(savedLang);
+    if (savedLang === "en" || savedLang === "fr" || savedLang === "pt") setLang(savedLang);
 
     const languageEn = document.getElementById("language-en");
+    const languageFr = document.getElementById("language-fr");
     const languagePt = document.getElementById("language-pt");
+    const langButtons = { en: languageEn, fr: languageFr, pt: languagePt };
 
-    languageEn.addEventListener("click", function () {
-        setLang("en");
-        languageEn.classList.add("active-language");
-        languagePt.classList.remove("active-language");
-        render(getParam());
-    });
-    languagePt.addEventListener("click", function () {
-        setLang("pt");
-        languagePt.classList.add("active-language");
-        languageEn.classList.remove("active-language");
-        render(getParam());
-    });
-
-    if (getLang() === "en") {
-        languageEn.classList.add("active-language");
-        languagePt.classList.remove("active-language");
-    } else {
-        languagePt.classList.add("active-language");
-        languageEn.classList.remove("active-language");
+    function setActive(lang) {
+        Object.keys(langButtons).forEach(function (key) {
+            var btn = langButtons[key];
+            if (btn) btn.classList.toggle("active-language", key === lang);
+        });
     }
 
+    languageEn.addEventListener("click", function () { setLang("en"); setActive("en"); render(getParam()); });
+    if (languageFr) languageFr.addEventListener("click", function () { setLang("fr"); setActive("fr"); render(getParam()); });
+    languagePt.addEventListener("click", function () { setLang("pt"); setActive("pt"); render(getParam()); });
+
+    setActive(getLang());
     render(getParam());
+
+    // Fade in ao carregar
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            document.body.classList.remove("fade-in-load");
+        });
+    });
+
+    // Fade out ao clicar em link para index
+    document.addEventListener("click", function (e) {
+        var a = e.target.closest("a[href*='index.html'], a.work-back");
+        if (!a || a.target === "_blank") return;
+        var href = a.getAttribute("href");
+        if (!href || href.indexOf("index.html") === -1) return;
+        if (a.origin && a.origin !== window.location.origin) return;
+        e.preventDefault();
+        document.body.classList.add("page-fade-out");
+        setTimeout(function () { window.location.href = a.href; }, 260);
+    });
 }
 
 init();

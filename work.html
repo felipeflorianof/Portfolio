@@ -10,37 +10,34 @@
     <link rel="stylesheet" href="style.css">
     <title>Projeto — Felipe Fontes</title>
 </head>
-<body class="work-page">
-    <header class="site-header">
-        <nav class="site-nav">
+<body class="work-page fade-in-load" id="top">
+    <header class="site-header site-header--minimal">
+        <nav class="site-nav site-nav--hero">
             <a href="index.html" class="nav-link" data-i18n="navPortfolio">Portfolio</a>
             <div class="lang-toggle">
                 <button id="language-en" class="btn btn-secondary btn-sm">EN</button>
+                <button id="language-fr" class="btn btn-secondary btn-sm">FR</button>
                 <button id="language-pt" class="btn btn-secondary btn-sm active-language">PT</button>
             </div>
         </nav>
     </header>
 
     <main class="work-main">
-        <a href="index.html#portfolio" class="work-back" id="work-back"></a>
+        <a href="index.html" class="work-back" id="work-back"></a>
         <article class="work-article">
+            <h1 class="work-title" id="work-title"></h1>
+            <p class="work-description" id="work-description"></p>
+            <p class="work-tech" id="work-tech"></p>
             <img class="work-image" id="work-image" src="" alt="">
-            <div class="work-body">
-                <h1 class="work-title" id="work-title"></h1>
-                <p class="work-tech" id="work-tech"></p>
-                <div class="work-description" id="work-description"></div>
-            </div>
         </article>
     </main>
 
-    <footer class="site-footer">
-        <a href="https://www.linkedin.com/in/felipeflorianofontes/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img class="footer-icons" src="imagens/linkedinlogo.svg" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/felipeflorianof" target="_blank" rel="noopener" aria-label="GitHub">
-            <img class="footer-icons" src="imagens/githublogo.svg" alt="GitHub">
-        </a>
-        <p class="footer-credit">Felipe Fontes</p>
+    <footer class="site-footer work-page-footer">
+        <a href="#top" class="work-back-to-top" id="work-back-to-top">↑ Back to top</a>
+        <span class="footer-name">Felipe Fontes</span>
+        <a href="https://www.linkedin.com/in/felipeflorianofontes/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        <a href="mailto:felipeflorianof@gmail.com" class="footer-link">Gmail</a>
+        <a href="https://github.com/felipeflorianof" target="_blank" rel="noopener" class="footer-link">GitHub</a>
     </footer>
 
     <script src="Js/work.js"></script>
