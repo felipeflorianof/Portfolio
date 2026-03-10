@@ -1,5 +1,7 @@
 if (typeof history !== "undefined" && history.scrollRestoration) history.scrollRestoration = "manual";
-window.scrollTo(0, 0);
+var savedScrollY = null;
+try { var s = sessionStorage.getItem("portfolio-scroll"); if (s !== null) { savedScrollY = parseInt(s, 10); sessionStorage.removeItem("portfolio-scroll"); } } catch (e) {}
+if (!savedScrollY) window.scrollTo(0, 0);
 
 const languageEn = document.getElementById("language-en");
 const languageFr = document.getElementById("language-fr");
@@ -113,20 +115,21 @@ requestAnimationFrame(function () {
     if (hero) hero.classList.add("hero-loaded");
 });
 
-// Fade in ao carregar e garante que a página abre no topo
+// Fade in ao carregar; restaura scroll ao voltar do work, senão abre no topo
 requestAnimationFrame(function () {
     requestAnimationFrame(function () {
         document.body.classList.remove("fade-in-load");
-        window.scrollTo(0, 0);
+        if (savedScrollY) window.scrollTo(0, savedScrollY); else window.scrollTo(0, 0);
     });
 });
-window.addEventListener("load", function () { window.scrollTo(0, 0); });
+window.addEventListener("load", function () { if (savedScrollY) window.scrollTo(0, savedScrollY); else window.scrollTo(0, 0); });
 
 // Fade out ao clicar em link para work.html
 document.addEventListener("click", function (e) {
     var a = e.target.closest("a[href*='work.html']");
     if (!a || a.target === "_blank" || a.host !== window.location.host) return;
     e.preventDefault();
+    try { sessionStorage.setItem("portfolio-scroll", String(window.scrollY)); } catch (e) {}
     document.body.classList.add("page-fade-out");
     setTimeout(function () { window.location.href = a.href; }, 260);
 });
