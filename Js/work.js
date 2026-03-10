@@ -77,7 +77,16 @@ function render(projectKey) {
     document.getElementById("work-tech").textContent = data.techLine != null ? data.techLine : (builtWithLabel[lang] || builtWithLabel.en) + " " + data.tech + ".";
     document.getElementById("work-image").src = data.image;
     document.getElementById("work-image").alt = data.title;
-    document.getElementById("work-back").textContent = backLabel[lang];
+    var backEl = document.getElementById("work-back");
+    backEl.textContent = backLabel[lang];
+    var search = new URLSearchParams(window.location.search);
+    var fromScroll = search.get("from_scroll");
+    backEl.href = fromScroll ? "index.html?scroll=" + encodeURIComponent(fromScroll) : "index.html";
+    if (fromScroll && typeof history !== "undefined" && history.replaceState) {
+        search.delete("from_scroll");
+        var qs = search.toString();
+        history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : ""));
+    }
     var backToTopEl = document.getElementById("work-back-to-top");
     if (backToTopEl) backToTopEl.textContent = backToTopLabel[lang] || backToTopLabel.en;
     document.title = data.title + " — Felipe Fontes";
@@ -122,7 +131,8 @@ function init() {
         if (a.origin && a.origin !== window.location.origin) return;
         e.preventDefault();
         document.body.classList.add("page-fade-out");
-        setTimeout(function () { window.location.href = a.href; }, 260);
+        var targetHref = a.getAttribute("href") || a.href;
+        setTimeout(function () { window.location.href = targetHref; }, 260);
     });
 }
 

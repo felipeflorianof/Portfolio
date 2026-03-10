@@ -1,6 +1,19 @@
 if (typeof history !== "undefined" && history.scrollRestoration) history.scrollRestoration = "manual";
 var savedScrollY = null;
-try { var s = sessionStorage.getItem("portfolio-scroll"); if (s !== null) { savedScrollY = parseInt(s, 10); sessionStorage.removeItem("portfolio-scroll"); } } catch (e) {}
+(function () {
+    var params = new URLSearchParams(window.location.search);
+    var scrollParam = params.get("scroll");
+    if (scrollParam !== null && scrollParam !== "") {
+        var n = parseInt(scrollParam, 10);
+        if (!isNaN(n) && n >= 0) savedScrollY = n;
+    }
+    if (savedScrollY !== null && typeof history !== "undefined" && history.replaceState) {
+        params.delete("scroll");
+        var cleanSearch = params.toString();
+        var cleanUrl = window.location.pathname + (cleanSearch ? "?" + cleanSearch : "") + window.location.hash;
+        history.replaceState(null, "", cleanUrl);
+    }
+})();
 if (!savedScrollY) window.scrollTo(0, 0);
 
 const languageEn = document.getElementById("language-en");
@@ -129,9 +142,10 @@ document.addEventListener("click", function (e) {
     var a = e.target.closest("a[href*='work.html']");
     if (!a || a.target === "_blank" || a.host !== window.location.host) return;
     e.preventDefault();
-    try { sessionStorage.setItem("portfolio-scroll", String(window.scrollY)); } catch (e) {}
+    var scrollY = Math.round(window.scrollY);
+    var url = a.href.indexOf("?") >= 0 ? a.href + "&from_scroll=" + scrollY : a.href + "?from_scroll=" + scrollY;
     document.body.classList.add("page-fade-out");
-    setTimeout(function () { window.location.href = a.href; }, 260);
+    setTimeout(function () { window.location.href = url; }, 260);
 });
 
 // Animação ao rolar: seções entram quando aparecem na tela
