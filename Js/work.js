@@ -47,6 +47,10 @@ const projects = {
 const backLabel = { pt: "← Voltar ao portfolio", en: "← Back to portfolio", fr: "← Retour au portfolio" };
 const backToTopLabel = { pt: "↑ Voltar ao topo", en: "↑ Back to top", fr: "↑ Retour en haut" };
 const builtWithLabel = { pt: "Construído com", en: "Built with", fr: "Construit avec" };
+const FONT_SIZE_KEY = "portfolio-font-size";
+const MIN_FONT = 80;
+const MAX_FONT = 140;
+const FONT_STEP = 10;
 
 function getParam() {
     const params = new URLSearchParams(window.location.search);
@@ -87,27 +91,84 @@ function render(projectKey) {
     document.title = data.title + " — Felipe Fontes";
 }
 
+function getFontSize() {
+    try {
+        var n = parseInt(localStorage.getItem(FONT_SIZE_KEY), 10);
+        return isNaN(n) ? 100 : Math.max(MIN_FONT, Math.min(MAX_FONT, n));
+    } catch (e) { return 100; }
+}
+
+function setFontSize(percent) {
+    percent = Math.max(MIN_FONT, Math.min(MAX_FONT, percent));
+    document.documentElement.style.fontSize = percent + "%";
+    try { localStorage.setItem(FONT_SIZE_KEY, String(percent)); } catch (e) {}
+}
+
+function updateLangTrigger(lang) {
+    var flagEl = document.getElementById("current-lang-flag");
+    var t = document.getElementById("flag-" + lang);
+    if (flagEl && t) flagEl.innerHTML = t.outerHTML;
+}
+
+function openLangDropdown() {
+    var trigger = document.getElementById("lang-trigger");
+    var menu = document.getElementById("lang-dropdown-menu");
+    if (trigger && menu) {
+        trigger.closest(".lang-dropdown").classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+        menu.setAttribute("aria-hidden", "false");
+    }
+}
+
+function closeLangDropdown() {
+    var trigger = document.getElementById("lang-trigger");
+    var menu = document.getElementById("lang-dropdown-menu");
+    if (trigger && menu) {
+        trigger.closest(".lang-dropdown").classList.remove("open");
+        trigger.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-hidden", "true");
+    }
+}
+
 function init() {
     const savedLang = typeof localStorage !== "undefined" && localStorage.getItem("portfolio-lang");
     if (savedLang === "en" || savedLang === "fr" || savedLang === "pt") setLang(savedLang);
 
-    const languageEn = document.getElementById("language-en");
-    const languageFr = document.getElementById("language-fr");
-    const languagePt = document.getElementById("language-pt");
-    const langButtons = { en: languageEn, fr: languageFr, pt: languagePt };
+    setFontSize(getFontSize());
+    updateLangTrigger(getLang());
 
-    function setActive(lang) {
-        Object.keys(langButtons).forEach(function (key) {
-            var btn = langButtons[key];
-            if (btn) btn.classList.toggle("active-language", key === lang);
+    var langTrigger = document.getElementById("lang-trigger");
+    var langDropdown = document.getElementById("lang-dropdown-menu");
+    if (langTrigger) {
+        langTrigger.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var isOpen = this.closest(".lang-dropdown").classList.contains("open");
+            if (isOpen) closeLangDropdown(); else openLangDropdown();
         });
     }
+    if (langDropdown) {
+        langDropdown.querySelectorAll(".lang-option").forEach(function (opt) {
+            opt.addEventListener("click", function () {
+                var lang = this.getAttribute("data-lang");
+                if (lang) {
+                    setLang(lang);
+                    updateLangTrigger(lang);
+                    render(getParam());
+                }
+                closeLangDropdown();
+                this.blur();
+            });
+        });
+    }
+    var dropdownEl = langTrigger && langTrigger.closest(".lang-dropdown");
+    if (dropdownEl) dropdownEl.addEventListener("click", function (e) { e.stopPropagation(); });
+    document.addEventListener("click", closeLangDropdown);
 
-    languageEn.addEventListener("click", function () { setLang("en"); setActive("en"); render(getParam()); });
-    if (languageFr) languageFr.addEventListener("click", function () { setLang("fr"); setActive("fr"); render(getParam()); });
-    languagePt.addEventListener("click", function () { setLang("pt"); setActive("pt"); render(getParam()); });
+    var fontDecrease = document.getElementById("font-decrease");
+    var fontIncrease = document.getElementById("font-increase");
+    if (fontDecrease) fontDecrease.addEventListener("click", function () { setFontSize(getFontSize() - FONT_STEP); this.blur(); });
+    if (fontIncrease) fontIncrease.addEventListener("click", function () { setFontSize(getFontSize() + FONT_STEP); this.blur(); });
 
-    setActive(getLang());
     render(getParam());
 
     // Fade in ao carregar

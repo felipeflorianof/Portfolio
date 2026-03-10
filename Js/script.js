@@ -1,9 +1,20 @@
 if (typeof history !== "undefined" && history.scrollRestoration) history.scrollRestoration = "manual";
 if (window.location.hash !== "#portfolio") window.scrollTo(0, 0);
 
-const languageEn = document.getElementById("language-en");
-const languageFr = document.getElementById("language-fr");
-const languagePt = document.getElementById("language-pt");
+const langTrigger = document.getElementById("lang-trigger");
+const langDropdown = document.getElementById("lang-dropdown-menu");
+const currentLangFlag = document.getElementById("current-lang-flag");
+const fontDecrease = document.getElementById("font-decrease");
+const fontIncrease = document.getElementById("font-increase");
+
+function setCurrentFlag(lang) {
+    var t = document.getElementById("flag-" + lang);
+    if (t && currentLangFlag) currentLangFlag.innerHTML = t.outerHTML;
+}
+const FONT_SIZE_KEY = "portfolio-font-size";
+const MIN_FONT = 80;
+const MAX_FONT = 140;
+const FONT_STEP = 10;
 
 const texts = {
     pt: {
@@ -64,48 +75,91 @@ const texts = {
 
 function updateText(language) {
     const t = texts[language];
-    document.querySelector(".hero-subtitle").textContent = t.heroSubtitle;
-    document.querySelector(".hero-title").textContent = t.heroTitle;
-    document.querySelector(".hero-cta").textContent = t.heroCta;
-    document.querySelectorAll("[data-i18n='heroQuote']").forEach(function (el) { el.textContent = t.heroQuote; });
-    document.querySelectorAll("[data-i18n='navPortfolio']").forEach((el) => (el.textContent = t.navPortfolio));
-    document.querySelectorAll("[data-i18n='portfolioHeading']").forEach((el) => (el.textContent = t.portfolioHeading));
-    document.querySelectorAll("[data-i18n='project1Title']").forEach((el) => (el.textContent = t.project1Title));
-    document.querySelectorAll("[data-i18n='project1Tech']").forEach((el) => (el.textContent = t.project1Tech));
-    document.querySelectorAll("[data-i18n='project2Title']").forEach((el) => (el.textContent = t.project2Title));
-    document.querySelectorAll("[data-i18n='project2Tech']").forEach((el) => (el.textContent = t.project2Tech));
-    document.querySelectorAll("[data-i18n='projectCardCta']").forEach((el) => (el.textContent = t.projectCardCta));
-    document.querySelector(".experience-heading").textContent = t.experienceHeading;
-    document.querySelector(".experience-role strong").textContent = t.experienceRole;
-    document.querySelectorAll("[data-i18n='experienceDuration']").forEach(function (el) { el.textContent = t.experienceDuration; });
-    document.querySelector(".experience-description").textContent = t.experienceDescription;
-    document.getElementById("back-to-top").textContent = t.backToTop;
-}
-
-var langButtons = { en: languageEn, fr: languageFr, pt: languagePt };
-
-function setActiveButton(activeLang) {
-    Object.keys(langButtons).forEach(function (key) {
-        var btn = langButtons[key];
-        if (btn) btn.classList.toggle("active-language", key === activeLang);
-    });
+    var el;
+    if ((el = document.querySelector(".hero-subtitle"))) el.textContent = t.heroSubtitle;
+    if ((el = document.querySelector(".hero-title"))) el.textContent = t.heroTitle;
+    if ((el = document.querySelector(".hero-cta"))) el.textContent = t.heroCta;
+    document.querySelectorAll("[data-i18n='heroQuote']").forEach(function (e) { e.textContent = t.heroQuote; });
+    document.querySelectorAll("[data-i18n='navPortfolio']").forEach(function (e) { e.textContent = t.navPortfolio; });
+    document.querySelectorAll("[data-i18n='portfolioHeading']").forEach(function (e) { e.textContent = t.portfolioHeading; });
+    document.querySelectorAll("[data-i18n='project1Title']").forEach(function (e) { e.textContent = t.project1Title; });
+    document.querySelectorAll("[data-i18n='project1Tech']").forEach(function (e) { e.textContent = t.project1Tech; });
+    document.querySelectorAll("[data-i18n='project2Title']").forEach(function (e) { e.textContent = t.project2Title; });
+    document.querySelectorAll("[data-i18n='project2Tech']").forEach(function (e) { e.textContent = t.project2Tech; });
+    document.querySelectorAll("[data-i18n='projectCardCta']").forEach(function (e) { e.textContent = t.projectCardCta; });
+    if ((el = document.querySelector(".experience-heading"))) el.textContent = t.experienceHeading;
+    if ((el = document.querySelector(".experience-role strong"))) el.textContent = t.experienceRole;
+    document.querySelectorAll("[data-i18n='experienceDuration']").forEach(function (e) { e.textContent = t.experienceDuration; });
+    if ((el = document.querySelector(".experience-description"))) el.textContent = t.experienceDescription;
+    if ((el = document.getElementById("back-to-top"))) el.textContent = t.backToTop;
+    setCurrentFlag(language);
 }
 
 function setLanguage(lang) {
     if (!texts[lang]) lang = "en";
     updateText(lang);
-    setActiveButton(lang);
     try { localStorage.setItem("portfolio-lang", lang); } catch (e) {}
+    closeLangDropdown();
 }
 
-languageEn.addEventListener("click", function () { setLanguage("en"); this.blur(); });
-if (languageFr) languageFr.addEventListener("click", function () { setLanguage("fr"); this.blur(); });
-languagePt.addEventListener("click", function () { setLanguage("pt"); this.blur(); });
+function openLangDropdown() {
+    if (langTrigger && langDropdown) {
+        langTrigger.closest(".lang-dropdown").classList.add("open");
+        langTrigger.setAttribute("aria-expanded", "true");
+        langDropdown.setAttribute("aria-hidden", "false");
+    }
+}
+
+function closeLangDropdown() {
+    if (langTrigger && langDropdown) {
+        langTrigger.closest(".lang-dropdown").classList.remove("open");
+        langTrigger.setAttribute("aria-expanded", "false");
+        langDropdown.setAttribute("aria-hidden", "true");
+    }
+}
+
+if (langTrigger) {
+    langTrigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var isOpen = this.closest(".lang-dropdown").classList.contains("open");
+        if (isOpen) closeLangDropdown(); else openLangDropdown();
+    });
+}
+
+if (langDropdown) {
+    langDropdown.querySelectorAll(".lang-option").forEach(function (opt) {
+        opt.addEventListener("click", function () {
+            var lang = this.getAttribute("data-lang");
+            if (lang) setLanguage(lang);
+            this.blur();
+        });
+    });
+}
+
+document.addEventListener("click", function () { closeLangDropdown(); });
+if (langTrigger) langTrigger.closest(".lang-dropdown").addEventListener("click", function (e) { e.stopPropagation(); });
+
+function getFontSize() {
+    try {
+        var n = parseInt(localStorage.getItem(FONT_SIZE_KEY), 10);
+        return isNaN(n) ? 100 : Math.max(MIN_FONT, Math.min(MAX_FONT, n));
+    } catch (e) { return 100; }
+}
+
+function setFontSize(percent) {
+    percent = Math.max(MIN_FONT, Math.min(MAX_FONT, percent));
+    document.documentElement.style.fontSize = percent + "%";
+    try { localStorage.setItem(FONT_SIZE_KEY, String(percent)); } catch (e) {}
+}
+
+if (fontDecrease) fontDecrease.addEventListener("click", function () { setFontSize(getFontSize() - FONT_STEP); this.blur(); });
+if (fontIncrease) fontIncrease.addEventListener("click", function () { setFontSize(getFontSize() + FONT_STEP); this.blur(); });
 
 // Init: usa o idioma salvo (ex.: vindo da página work) ou padrão EN
 var savedLang = null;
 try { savedLang = localStorage.getItem("portfolio-lang"); } catch (e) {}
 setLanguage(savedLang === "fr" || savedLang === "pt" ? savedLang : "en");
+setFontSize(getFontSize());
 
 // Dispara a animação de entrada do hero (após o texto estar preenchido)
 requestAnimationFrame(function () {

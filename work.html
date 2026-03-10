@@ -13,11 +13,23 @@
 <body class="work-page fade-in-load" id="top">
     <header class="site-header site-header--minimal">
         <nav class="site-nav site-nav--hero">
-            <a href="index.html" class="nav-link" data-i18n="navPortfolio">Portfolio</a>
-            <div class="lang-toggle">
-                <button id="language-en" class="btn btn-secondary btn-sm">EN</button>
-                <button id="language-fr" class="btn btn-secondary btn-sm">FR</button>
-                <button id="language-pt" class="btn btn-secondary btn-sm active-language">PT</button>
+            <a href="index.html" class="nav-link">Portfolio</a>
+            <div class="nav-controls">
+                <div class="text-size-controls">
+                    <button type="button" class="text-size-btn" id="font-decrease" aria-label="Diminuir tamanho do texto">A-</button>
+                    <button type="button" class="text-size-btn" id="font-increase" aria-label="Aumentar tamanho do texto">A+</button>
+                </div>
+                <div class="lang-dropdown">
+                    <button type="button" class="lang-dropdown-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="lang-flag lang-flag-svg" id="current-lang-flag" aria-hidden="true"></span>
+                        <span class="lang-chevron" aria-hidden="true">▼</span>
+                    </button>
+                    <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-hidden="true">
+                        <li class="lang-option" role="option" data-lang="pt" tabindex="0"><span class="lang-flag lang-flag-svg"><svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true"><rect width="20" height="14" fill="#009739"/><path d="M10 0L20 7 10 14 0 7z" fill="#FEDD00"/><circle cx="10" cy="7" r="3.2" fill="#012169"/></svg></span> PT-BR</li>
+                        <li class="lang-option" role="option" data-lang="en" tabindex="0"><span class="lang-flag lang-flag-svg"><svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true"><rect width="20" height="14" fill="#B22234"/><rect y="1.08" width="20" height="1.08" fill="#fff"/><rect y="2.16" width="20" height="1.08" fill="#B22234"/><rect y="3.24" width="20" height="1.08" fill="#fff"/><rect y="4.32" width="20" height="1.08" fill="#B22234"/><rect y="5.4" width="20" height="1.08" fill="#fff"/><rect y="6.48" width="20" height="1.08" fill="#B22234"/><rect y="7.56" width="20" height="1.08" fill="#fff"/><rect y="8.64" width="20" height="1.08" fill="#B22234"/><rect y="9.72" width="20" height="1.08" fill="#fff"/><rect y="10.8" width="20" height="1.08" fill="#B22234"/><rect y="11.88" width="20" height="1.08" fill="#fff"/><rect width="8" height="7.56" fill="#3C3B6E"/></svg></span> EN</li>
+                        <li class="lang-option" role="option" data-lang="fr" tabindex="0"><span class="lang-flag lang-flag-svg"><svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true"><rect width="6.67" height="14" fill="#002395"/><rect x="6.67" width="6.66" height="14" fill="#fff"/><rect x="13.33" width="6.67" height="14" fill="#ED2939"/></svg></span> FR</li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -40,6 +52,11 @@
         <a href="https://github.com/felipeflorianof" target="_blank" rel="noopener" class="footer-link">GitHub</a>
     </footer>
 
-    <script src="Js/work.js"></script>
+        <div hidden aria-hidden="true" id="flag-templates">
+        <svg id="flag-pt" viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" fill="#009739"/><path d="M10 0L20 7 10 14 0 7z" fill="#FEDD00"/><circle cx="10" cy="7" r="3.2" fill="#012169"/></svg>
+        <svg id="flag-en" viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" fill="#B22234"/><rect y="1.08" width="20" height="1.08" fill="#fff"/><rect y="2.16" width="20" height="1.08" fill="#B22234"/><rect y="3.24" width="20" height="1.08" fill="#fff"/><rect y="4.32" width="20" height="1.08" fill="#B22234"/><rect y="5.4" width="20" height="1.08" fill="#fff"/><rect y="6.48" width="20" height="1.08" fill="#B22234"/><rect y="7.56" width="20" height="1.08" fill="#fff"/><rect y="8.64" width="20" height="1.08" fill="#B22234"/><rect y="9.72" width="20" height="1.08" fill="#fff"/><rect y="10.8" width="20" height="1.08" fill="#B22234"/><rect y="11.88" width="20" height="1.08" fill="#fff"/><rect width="8" height="7.56" fill="#3C3B6E"/></svg>
+        <svg id="flag-fr" viewBox="0 0 20 14" width="20" height="14"><rect width="6.67" height="14" fill="#002395"/><rect x="6.67" width="6.66" height="14" fill="#fff"/><rect x="13.33" width="6.67" height="14" fill="#ED2939"/></svg>
+    </div>
+<script src="Js/work.js"></script>
 </body>
 </html>
