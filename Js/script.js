@@ -1,69 +1,54 @@
-const controls = document.querySelectorAll(".control");
-let currentItem = 0;
-const items = document.querySelectorAll(".item");
-const maxItems = items.length;
-
-controls.forEach((control) => {
-  control.addEventListener("click", (e) => {
-    isLeft = e.target.classList.contains("arrow-left");
-
-    if (isLeft) {
-      currentItem -= 1;
-    } else {
-      currentItem += 1;
-    }
-
-    if (currentItem >= maxItems) {
-      currentItem = 0;
-    }
-
-    if (currentItem < 0) {
-      currentItem = maxItems - 1;
-    }
-
-    items.forEach((item) => item.classList.remove("current-item"));
-
-    const slideContainer = document.getElementById("slide-container");
-
-    items[currentItem].scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest"
-    });
-
-    items[currentItem].classList.add("current-item");
-  });
-});
-
 const languageEn = document.getElementById("language-en");
 const languagePt = document.getElementById("language-pt");
 
 const texts = {
     pt: {
-        greeting: "Olá Mundo, Me chamo Felipe;",
-        about: "Desenvolvedor de software apaixonado por criar soluções robustas e escaláveis. Trabalho remotamente desde 2023, integrando conhecimento técnico e práticas modernas para construir projetos de alto impacto.",
-        experienceTitle: "Experiência Profissional",
-        company: "Desenvolvedor de Software - Tempo Integral",
-        description: "Na Claro, especializo-me em desenvolvimento de sistemas, entregando soluções de alto desempenho para ambientes dinâmicos e de grande escala. Minha expertise em Angular permite criar aplicações front-end responsivas e centradas no usuário, que se integram perfeitamente aos sistemas back-end. Utilizo PHP com WordPress e Laravel para construir soluções server-side robustas e escaláveis, enquanto minha proficiência em SQL garante uma gestão de dados eficiente e desempenho otimizado. Com um forte foco em Angular para desenvolver interfaces dinâmicas e intuitivas, crio soluções impactantes que impulsionam o sucesso dos negócios.",
-        top_footer_text: "Confira minha entrevista com o jornal",
+        heroTitle: "Oi, sou o Felipe Fontes",
+        heroSubtitle: "Engenheiro de software",
+        heroCta: "Ver meus trabalhos",
+        navPortfolio: "Portfolio",
+        portfolioHeading: "Trabalhos em destaque",
+        project1Title: "Marketplace PME",
+        project1Tech: "Angular · TypeScript",
+        project2Title: "Controle de frotas",
+        project2Tech: "SQL · Laravel · PHP",
+        experienceHeading: "Experiência",
+        experienceRole: "Desenvolvedor de Software · Claro",
+        experienceDescription: "Desenvolvimento e evolução de sistemas corporativos em ambiente de grande escala. Responsável por interfaces em Angular, APIs e integrações em PHP/Laravel e modelagem de dados com SQL. Atuação em decisões técnicas, qualidade de código e entrega de valor em time.",
+        backToTop: "↑ Voltar ao topo",
     },
     en: {
-        greeting: "Hello World, I'm Felipe;",
-        about: "Software developer passionate about creating robust and scalable solutions. I've been working remotely since 2023, integrating technical knowledge and modern practices to build high-impact projects.",
-        experienceTitle: "Professional Experience",
-        company: "Software Developer - Full Time",
-        description: "At Claro, I specialize in system development, delivering high-performance solutions for dynamic, large-scale environments. My expertise in Angular allows me to craft responsive, user-centric front-end applications that seamlessly integrate with back-end systems. I leverage PHP with WordPress and Laravel to build robust, scalable server-side solutions, while my proficiency in SQL ensures efficient data management and optimized performance. With a strong focus on Angular for creating dynamic and intuitive user interfaces, I develop impactful solutions that drive business success.",
-        top_footer_text: "Check out my interview with the newspaper",
-    }
+        heroTitle: "Hi, I'm Felipe Fontes",
+        heroSubtitle: "Software Engineer",
+        heroCta: "See my work",
+        navPortfolio: "Portfolio",
+        portfolioHeading: "Featured work",
+        project1Title: "Marketplace PME",
+        project1Tech: "Angular · TypeScript",
+        project2Title: "Fleet control system",
+        project2Tech: "SQL · Laravel · PHP",
+        experienceHeading: "Experience",
+        experienceRole: "Software Developer · Claro",
+        experienceDescription: "Design and evolution of corporate systems in large-scale environments. Ownership of Angular front-ends, PHP/Laravel APIs and integrations, and SQL data modeling. Involved in technical decisions, code quality, and delivery as part of the team.",
+        backToTop: "↑ Back to top",
+    },
 };
 
 function updateText(language) {
-    document.querySelector(".typing-animation").textContent = texts[language].greeting;
-    document.querySelector("section:nth-of-type(1) p").textContent = texts[language].about;
-    document.querySelector("section:nth-of-type(2) h2").textContent = texts[language].experienceTitle;
-    document.querySelector("section:nth-of-type(2) p:nth-of-type(2)").textContent = texts[language].company;
-    document.querySelector("section:nth-of-type(2) p:nth-of-type(4)").textContent = texts[language].description;
-    document.querySelector("#top_footer_text p").innerHTML = `${texts[language].top_footer_text} <a href="https://g1.globo.com/tecnologia/noticia/2022/05/10/ja-entrei-pensando-em-ganhar-em-dolar-estudantes-falam-sobre-os-primeiros-passos-na-area-de-ti.ghtml" target="_blank">G1</a> 👈🏽`;
+    const t = texts[language];
+    document.querySelector(".hero-subtitle").textContent = t.heroSubtitle;
+    document.querySelector(".hero-title").textContent = t.heroTitle;
+    document.querySelector(".hero-cta").textContent = t.heroCta;
+    document.querySelectorAll("[data-i18n='navPortfolio']").forEach((el) => (el.textContent = t.navPortfolio));
+    document.querySelectorAll("[data-i18n='portfolioHeading']").forEach((el) => (el.textContent = t.portfolioHeading));
+    document.querySelectorAll("[data-i18n='project1Title']").forEach((el) => (el.textContent = t.project1Title));
+    document.querySelectorAll("[data-i18n='project1Tech']").forEach((el) => (el.textContent = t.project1Tech));
+    document.querySelectorAll("[data-i18n='project2Title']").forEach((el) => (el.textContent = t.project2Title));
+    document.querySelectorAll("[data-i18n='project2Tech']").forEach((el) => (el.textContent = t.project2Tech));
+    document.querySelector(".experience-heading").textContent = t.experienceHeading;
+    document.querySelector(".experience-role strong").textContent = t.experienceRole;
+    document.querySelector(".experience-description").textContent = t.experienceDescription;
+    document.getElementById("back-to-top").textContent = t.backToTop;
 }
 
 function setActiveButton(activeButton, inactiveButton) {
@@ -71,17 +56,32 @@ function setActiveButton(activeButton, inactiveButton) {
     inactiveButton.classList.remove("active-language");
 }
 
+function setLanguage(lang) {
+    updateText(lang);
+    setActiveButton(
+        lang === "en" ? languageEn : languagePt,
+        lang === "en" ? languagePt : languageEn
+    );
+    try { localStorage.setItem("portfolio-lang", lang); } catch (e) {}
+}
+
 languageEn.addEventListener("click", function () {
-    updateText("en");
-    setActiveButton(languageEn, languagePt);
+    setLanguage("en");
     this.blur();
 });
 
 languagePt.addEventListener("click", function () {
-    updateText("pt");
-    setActiveButton(languagePt, languageEn);
+    setLanguage("pt");
     this.blur();
 });
 
-updateText("en");
-setActiveButton(languageEn, languagePt, );
+// Init: usa o idioma salvo (ex.: vindo da página work) ou padrão EN
+var savedLang = null;
+try { savedLang = localStorage.getItem("portfolio-lang"); } catch (e) {}
+setLanguage(savedLang === "pt" ? "pt" : "en");
+
+// Dispara a animação de entrada do hero (após o texto estar preenchido)
+requestAnimationFrame(function () {
+    var hero = document.querySelector(".hero");
+    if (hero) hero.classList.add("hero-loaded");
+});
