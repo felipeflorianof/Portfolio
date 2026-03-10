@@ -1,17 +1,16 @@
 if (typeof history !== "undefined" && history.scrollRestoration) history.scrollRestoration = "manual";
 var savedScrollY = null;
 (function () {
-    var params = new URLSearchParams(window.location.search);
-    var scrollParam = params.get("scroll");
-    if (scrollParam !== null && scrollParam !== "") {
-        var n = parseInt(scrollParam, 10);
-        if (!isNaN(n) && n >= 0) savedScrollY = n;
+    var hash = window.location.hash;
+    if (hash) {
+        var m = hash.match(/^#scroll=(\d+)$/);
+        if (m) {
+            var n = parseInt(m[1], 10);
+            if (!isNaN(n) && n >= 0) savedScrollY = n;
+        }
     }
     if (savedScrollY !== null && typeof history !== "undefined" && history.replaceState) {
-        params.delete("scroll");
-        var cleanSearch = params.toString();
-        var cleanUrl = window.location.pathname + (cleanSearch ? "?" + cleanSearch : "") + window.location.hash;
-        history.replaceState(null, "", cleanUrl);
+        history.replaceState(null, "", window.location.pathname + window.location.search);
     }
 })();
 if (!savedScrollY) window.scrollTo(0, 0);
@@ -128,14 +127,20 @@ requestAnimationFrame(function () {
     if (hero) hero.classList.add("hero-loaded");
 });
 
-// Fade in ao carregar; restaura scroll ao voltar do work, senão abre no topo
+// Fade in ao carregar; restaura scroll ao voltar do work (após load para Netlify/CDN)
 requestAnimationFrame(function () {
     requestAnimationFrame(function () {
         document.body.classList.remove("fade-in-load");
-        if (savedScrollY) window.scrollTo(0, savedScrollY); else window.scrollTo(0, 0);
+        if (savedScrollY != null) window.scrollTo(0, savedScrollY);
+        else window.scrollTo(0, 0);
     });
 });
-window.addEventListener("load", function () { if (savedScrollY) window.scrollTo(0, savedScrollY); else window.scrollTo(0, 0); });
+window.addEventListener("load", function () {
+    if (savedScrollY != null) {
+        window.scrollTo(0, savedScrollY);
+        setTimeout(function () { window.scrollTo(0, savedScrollY); }, 50);
+    } else window.scrollTo(0, 0);
+});
 
 // Fade out ao clicar em link para work.html
 document.addEventListener("click", function (e) {

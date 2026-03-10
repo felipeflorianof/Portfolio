@@ -81,7 +81,9 @@ function render(projectKey) {
     backEl.textContent = backLabel[lang];
     var search = new URLSearchParams(window.location.search);
     var fromScroll = search.get("from_scroll");
-    backEl.href = fromScroll ? "index.html?scroll=" + encodeURIComponent(fromScroll) : "index.html";
+    var basePath = window.location.pathname.replace(/\/[^/]*$/, "") || "/";
+    var indexUrl = basePath === "/" ? "/" : basePath + "/";
+    backEl.href = fromScroll ? indexUrl + "#scroll=" + encodeURIComponent(fromScroll) : indexUrl;
     if (fromScroll && typeof history !== "undefined" && history.replaceState) {
         search.delete("from_scroll");
         var qs = search.toString();
