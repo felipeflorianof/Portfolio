@@ -1,3 +1,6 @@
+if (typeof history !== "undefined" && history.scrollRestoration) history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
+
 const languageEn = document.getElementById("language-en");
 const languageFr = document.getElementById("language-fr");
 const languagePt = document.getElementById("language-pt");
@@ -110,12 +113,14 @@ requestAnimationFrame(function () {
     if (hero) hero.classList.add("hero-loaded");
 });
 
-// Fade in ao carregar
+// Fade in ao carregar e garante que a página abre no topo
 requestAnimationFrame(function () {
     requestAnimationFrame(function () {
         document.body.classList.remove("fade-in-load");
+        window.scrollTo(0, 0);
     });
 });
+window.addEventListener("load", function () { window.scrollTo(0, 0); });
 
 // Fade out ao clicar em link para work.html
 document.addEventListener("click", function (e) {
