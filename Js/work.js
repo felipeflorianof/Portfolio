@@ -86,7 +86,7 @@ function render(projectKey) {
     }
     var basePath = window.location.pathname.replace(/\/[^/]*$/, "") || "/";
     var indexUrl = basePath === "/" ? "/" : basePath + "/";
-    backEl.href = indexUrl;
+    backEl.href = indexUrl + (fromScroll ? "#scroll=" + encodeURIComponent(fromScroll) : "");
     backEl.setAttribute("data-scroll", fromScroll || "");
     if (fromScroll && typeof history !== "undefined" && history.replaceState) {
         search.delete("from_scroll");
