@@ -80,8 +80,9 @@ function render(projectKey) {
     document.getElementById("work-title").textContent = data.title;
     document.getElementById("work-description").textContent = data.description;
     document.getElementById("work-tech").textContent = data.techLine != null ? data.techLine : (builtWithLabel[lang] || builtWithLabel.en) + " " + data.tech + ".";
-    document.getElementById("work-image").src = data.image;
-    document.getElementById("work-image").alt = data.title;
+    var workImg = document.getElementById("work-image");
+    workImg.src = data.image;
+    workImg.alt = data.title;
     var backEl = document.getElementById("work-back");
     backEl.textContent = backLabel[lang];
     var basePath = window.location.pathname.replace(/\/[^/]*$/, "") || "/";
@@ -171,6 +172,40 @@ function init() {
     if (fontIncrease) fontIncrease.addEventListener("click", function () { setFontSize(getFontSize() + FONT_STEP); this.blur(); });
 
     render(getParam());
+
+    // Lightbox: clique na imagem grande abre em tela cheia
+    var lightbox = document.getElementById("work-lightbox");
+    var lightboxImg = document.getElementById("work-lightbox-image");
+    var lightboxClose = document.getElementById("work-lightbox-close");
+    var lightboxBackdrop = lightbox && lightbox.querySelector(".work-lightbox__backdrop");
+
+    function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", onLightboxKeydown);
+    }
+
+    function onLightboxKeydown(e) {
+        if (e.key === "Escape") closeLightbox();
+    }
+
+    var workImageEl = document.getElementById("work-image");
+    if (workImageEl) {
+        workImageEl.addEventListener("click", function () {
+            if (!lightbox || !lightboxImg) return;
+            lightboxImg.src = this.src;
+            lightboxImg.alt = this.alt;
+            lightbox.classList.add("is-open");
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+            document.addEventListener("keydown", onLightboxKeydown);
+            if (lightboxClose) lightboxClose.focus();
+        });
+    }
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
 
     // Fade in ao carregar
     requestAnimationFrame(function () {
