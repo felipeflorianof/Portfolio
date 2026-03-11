@@ -397,7 +397,7 @@ button.active-language {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 4px;
 }
 
 .project-card {
@@ -421,7 +421,36 @@ button.active-language {
 .project-image-wrap {
     position: relative;
     overflow: hidden;
-    height: 220px;
+    height: 240px;
+}
+
+/* Card Claro: sem bordas, tamanho pra primeira imagem caber certinha com contain */
+.project-card--claro {
+    border: none;
+}
+
+.project-card--claro .project-image-wrap--claro {
+    height: 280px;
+    background: #1e293b;
+    border: none;
+}
+
+/* cover = preenche o card e corta o espaço em branco em volta, quadrado só com o conteúdo */
+.project-image-wrap--claro .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Controle de frotas: mesma altura do card Claro para não sobrar listra embaixo no grid */
+.project-image-wrap--frotas {
+    height: 280px;
+    background: var(--bg-card);
+}
+
+.project-image-wrap--frotas .project-image {
+    object-position: center top;
 }
 
 .project-image-wrap::after {
@@ -654,7 +683,15 @@ button.active-language {
     }
 
     .project-image-wrap {
-        height: 200px;
+        height: 220px;
+    }
+
+    .project-image-wrap--claro {
+        height: 260px;
+    }
+
+    .project-image-wrap--frotas {
+        height: 260px;
     }
 
     .project-info {
@@ -750,10 +787,10 @@ body.work-page .site-footer {
 .work-image {
     width: 100%;
     height: auto;
-    max-height: 420px;
-    object-fit: cover;
+    max-height: 85vh;
     display: block;
     border-radius: 0;
+    /* Use imagem com largura mín. 1360px para ficar nítida em telas retina */
 }
 
 .work-back-to-top {
