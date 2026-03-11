@@ -30,7 +30,7 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 40px;
-    background: linear-gradient(180deg, #fafbff 0%, var(--bg) 35%, #f2f4f8 100%);
+    background: var(--bg);
     color: var(--text);
     transition: opacity 0.25s ease;
 }
@@ -268,24 +268,7 @@ button.active-language {
     text-align: center;
     padding: 60px 24px 80px;
     position: relative;
-    background-image: radial-gradient(circle, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 90% 60% at 50% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 55%);
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.03) 0%, transparent 40%);
-    pointer-events: none;
+    background: var(--bg);
 }
 
 .hero-subtitle {
