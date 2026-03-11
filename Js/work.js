@@ -5,21 +5,21 @@ const projects = {
             tech: "Laravel · PHP",
             techLine: "Front-end e Back-end construído com Laravel · PHP.",
             image: "assets/riseshot-17731932181513871.png",
-            description: "Sistema interno de controle de frotas de veículos da empresa. Controla a frota de carros da Claro de quase todos os estados do Nordeste do Brasil. Passado para mim com o foco em fazer funcionar: manutenção, correção de bugs e ajustes. Atuo sozinho em front-end, back-end e banco de dados."
+            description: "Sistema interno para controle da frota de veículos da empresa. Gerencia a frota de carros da Claro em quase todos os estados do Nordeste. O projeto me foi passado para manter em funcionamento: manutenção, correção de bugs e ajustes. Atuo sozinho em front-end, back-end e banco de dados."
         },
         en: {
             title: "Claro Fleet control system",
             tech: "Laravel · PHP",
             techLine: "Front-end and Back-end built with Laravel · PHP.",
             image: "assets/riseshot-17731932181513871.png",
-            description: "Internal vehicle fleet control system for the company. It manages Claro's car fleet across almost all states of Northeast Brazil. Handed to me with a \"make it work\" focus: maintenance, bug fixes, and adjustments. I work on it alone across front-end, back-end, and database."
+            description: "Internal system for managing the company's vehicle fleet. It handles Claro's car fleet across almost all states in Brazil's Northeast. I was brought in to keep it running: maintenance, bug fixes, and improvements. I work on it alone, covering front-end, back-end, and database."
         },
         fr: {
             title: "Claro Système de gestion de flotte",
             tech: "Laravel · PHP",
             techLine: "Front-end et Back-end construit avec Laravel · PHP.",
             image: "assets/riseshot-17731932181513871.png",
-            description: "Système interne de gestion de flotte de véhicules pour l'entreprise. Il gère la flotte automobile de Claro dans presque tous les États du Nord-Est du Brésil. Confié avec l'objectif de maintenir le système en état de marche : maintenance, corrections et ajustements. J'interviens seul sur le front-end, le back-end et la base de données."
+            description: "Système interne de gestion de la flotte de véhicules. Il gère la flotte automobile de Claro dans presque tous les États du Nord-Est du Brésil. Le projet m'a été confié pour le maintenir en état de marche : maintenance, corrections de bugs et ajustements. J'interviens seul sur le front-end, le back-end et la base de données."
         }
     },
     equipe: {
@@ -27,19 +27,19 @@ const projects = {
             title: "Claro Marketplace PME",
             tech: "Angular",
             image: "assets/claro-marketplace-pme.png",
-            description: "Atuo como desenvolvedor front-end neste projeto em equipe, com foco em interfaces em Angular. O produto foi inicialmente construído em WordPress e depois migrado para Angular. O objetivo do produto é criar um ambiente de autoatendimento em que donos de negócio ou representantes de empresas possam comprar com facilidade produtos e serviços da Claro e de parceiros. O layout foi pensado para seguir a identidade visual da Claro, com adaptações que dão identidade própria ao produto e enxugam a jornada de venda. Todo o código foi escrito em linha com boas práticas de SEO, éticas e eficazes."
+            description: "Atuo como desenvolvedor front-end neste projeto em equipe, com foco em interfaces em Angular. O sistema nasceu em WordPress e foi migrado para Angular. É uma plataforma de autoatendimento para empresas e representantes comprarem produtos e serviços da Claro e de parceiros. O layout segue a identidade visual da Claro, com adaptações que dão cara própria ao produto e simplificam a jornada de compra. O código segue boas práticas de SEO."
         },
         en: {
             title: "Claro Marketplace PME",
             tech: "Angular",
             image: "assets/claro-marketplace-pme.png",
-            description: "I work as a front-end developer on this team project, building interfaces in Angular. The product was initially built on WordPress and later migrated to Angular. The product goal is to create a self-service platform where business owners or company representatives can easily purchase products and services from Claro and its partners. The layout was designed to align with Claro's existing visual identity, with adaptations that give the product its own style and streamline the sales journey. All code is written in line with ethical, effective SEO practices."
+            description: "I work as a front-end developer on this team project, building interfaces in Angular. The product started on WordPress and was later migrated to Angular. It's a self-service platform where businesses and company representatives can easily buy products and services from Claro and its partners. The layout follows Claro's visual identity, with adaptations that give the product its own look and simplify the buying journey. The code follows solid SEO practices."
         },
         fr: {
             title: "Claro Marketplace PME",
             tech: "Angular",
             image: "assets/claro-marketplace-pme.png",
-            description: "J'interviens en tant que développeur front-end sur ce projet d'équipe, avec un focus sur les interfaces en Angular. Le produit a d'abord été construit sur WordPress puis migré vers Angular. L'objectif du produit est de créer un environnement en libre-service où les chefs d'entreprise ou représentants d'entreprises puissent acheter facilement des produits et services Claro et de ses partenaires. La mise en page a été conçue pour s'aligner sur l'identité visuelle de Claro, avec des adaptations qui donnent au produit son propre style et simplifient le parcours de vente. Tout le code est rédigé en accord avec des pratiques SEO éthiques et efficaces."
+            description: "Je travaille en tant que développeur front-end sur ce projet d'équipe, sur les interfaces en Angular. Le produit a d'abord été développé sur WordPress puis migré vers Angular. C'est une plateforme en libre-service permettant aux entreprises et représentants d'acheter facilement des produits et services Claro et de ses partenaires. La maquette respecte l'identité visuelle de Claro, avec des adaptations qui donnent au produit sa propre identité et simplifient le parcours d'achat. Le code respecte les bonnes pratiques SEO."
         }
     }
 };
