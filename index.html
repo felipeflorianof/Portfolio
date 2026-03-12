@@ -20,8 +20,9 @@
                         <button type="button" class="text-size-btn" id="font-increase" aria-label="Aumentar tamanho do texto">A+</button>
                     </div>
                     <div class="lang-dropdown">
-                        <button type="button" class="lang-dropdown-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+                        <button type="button" class="lang-dropdown-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma">
                             <span class="lang-flag lang-flag-svg" id="current-lang-flag" aria-hidden="true"></span>
+                            <span class="lang-label" data-i18n="navLanguage">Idioma</span>
                             <span class="lang-chevron" aria-hidden="true">▼</span>
                         </button>
                         <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-hidden="true">
@@ -34,10 +35,10 @@
             </nav>
             <p class="hero-subtitle"></p>
             <h1 class="hero-title"></h1>
-            <a href="#portfolio" class="hero-cta scroll-link"></a>
+            <a href="#work-intro" class="hero-cta scroll-link"></a>
     </section>
 
-        <section class="quote-section">
+        <section id="work-intro" class="quote-section">
             <p class="site-quote" data-i18n="heroQuote"></p>
         </section>
 
@@ -49,7 +50,6 @@
                         <img class="project-image" src="assets/claro-marketplace-pme.png" alt="Claro Marketplace PME — soluções digitais em múltiplos dispositivos">
                         <div class="project-info">
                             <span class="project-title" data-i18n="project1Title">Claro Marketplace PME</span>
-                            <span class="project-cta" data-i18n="projectCardCta">Clique para saber mais</span>
                             <span class="project-tech" data-i18n="project1Tech">Angular</span>
                         </div>
                     </div>
@@ -59,12 +59,12 @@
                         <img class="project-image" src="assets/riseshot-17731932181513871.png" alt="Claro Controle de frotas — tela de administração">
                         <div class="project-info">
                             <span class="project-title" data-i18n="project2Title">Claro Controle de frotas</span>
-                            <span class="project-cta" data-i18n="projectCardCta">Clique para saber mais</span>
                             <span class="project-tech" data-i18n="project2Tech">Front · Back · SQL · Laravel · PHP</span>
                         </div>
                     </div>
                 </a>
             </div>
+            <p class="portfolio-hint" data-i18n="portfolioHint"></p>
         </section>
 
         <section id="experience" class="experience-section">

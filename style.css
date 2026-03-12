@@ -124,6 +124,12 @@ body.page-fade-out {
     flex-shrink: 0;
 }
 
+.lang-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+
 .lang-flag-svg svg {
     display: block;
     border-radius: 2px;
@@ -383,6 +389,13 @@ button.active-language {
     gap: 4px;
 }
 
+.portfolio-hint {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 24px 0 0;
+}
+
 .project-card {
     background: var(--bg-card);
     border-radius: 0;
@@ -488,12 +501,6 @@ button.active-language {
     text-align: center;
 }
 
-.project-cta {
-    font-size: 0.8125rem;
-    color: var(--text-on-dark-muted);
-    text-align: center;
-}
-
 .project-tech {
     font-size: 0.8125rem;
     color: var(--text-on-dark-muted);
@@ -563,6 +570,7 @@ button.active-language {
     text-align: center;
     opacity: 0;
     transform: translateY(16px);
+    scroll-margin-top: 24px;
     transition: opacity 0.45s ease-out, transform 0.45s ease-out;
 }
 

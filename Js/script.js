@@ -23,12 +23,14 @@ const texts = {
         heroCta: "Ver meus trabalhos",
         heroQuote: "Gosto que o meu ficou um pouco descentralizado. Tem wabi-sabi.",
         navPortfolio: "Portfolio",
+        navLanguage: "Idioma",
         portfolioHeading: "Trabalhos em destaque",
         project1Title: "Claro Marketplace PME",
         project1Tech: "Angular",
         project2Title: "Claro Controle de frotas",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
         projectCardCta: "Clique para saber mais",
+        portfolioHint: "Clique nas imagens para ver mais detalhes.",
         experienceHeading: "Experiência",
         experienceRole: "Desenvolvedor de Software · Claro",
         experienceDuration: " · +3 anos",
@@ -41,12 +43,14 @@ const texts = {
         heroCta: "See my work",
         heroQuote: "I like how mine's a little off-center. It's got wabi-sabi.",
         navPortfolio: "Portfolio",
+        navLanguage: "Language",
         portfolioHeading: "Featured work",
         project1Title: "Claro Marketplace PME",
         project1Tech: "Angular",
         project2Title: "Claro Fleet control system",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
         projectCardCta: "Click to learn more",
+        portfolioHint: "Click on the images to see more details.",
         experienceHeading: "Experience",
         experienceRole: "Software Developer · Claro",
         experienceDuration: " · 3+ years",
@@ -59,12 +63,14 @@ const texts = {
         heroCta: "Voir mes réalisations",
         heroQuote: "J'aime que le mien soit un peu décentré. Il a du wabi-sabi.",
         navPortfolio: "Portfolio",
+        navLanguage: "Langue",
         portfolioHeading: "Réalisations",
         project1Title: "Claro Marketplace PME",
         project1Tech: "Angular",
         project2Title: "Claro Système de gestion de flotte",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
         projectCardCta: "Cliquez pour en savoir plus",
+        portfolioHint: "Cliquez sur les images pour plus de détails.",
         experienceHeading: "Expérience",
         experienceRole: "Développeur de logiciels · Claro",
         experienceDuration: " · +3 ans",
@@ -81,12 +87,16 @@ function updateText(language) {
     if ((el = document.querySelector(".hero-cta"))) el.textContent = t.heroCta;
     document.querySelectorAll("[data-i18n='heroQuote']").forEach(function (e) { e.textContent = t.heroQuote; });
     document.querySelectorAll("[data-i18n='navPortfolio']").forEach(function (e) { e.textContent = t.navPortfolio; });
+    document.querySelectorAll("[data-i18n='navLanguage']").forEach(function (e) { e.textContent = t.navLanguage; });
+    var langTriggerBtn = document.getElementById("lang-trigger");
+    if (langTriggerBtn) langTriggerBtn.setAttribute("aria-label", t.navLanguage);
     document.querySelectorAll("[data-i18n='portfolioHeading']").forEach(function (e) { e.textContent = t.portfolioHeading; });
     document.querySelectorAll("[data-i18n='project1Title']").forEach(function (e) { e.textContent = t.project1Title; });
     document.querySelectorAll("[data-i18n='project1Tech']").forEach(function (e) { e.textContent = t.project1Tech; });
     document.querySelectorAll("[data-i18n='project2Title']").forEach(function (e) { e.textContent = t.project2Title; });
     document.querySelectorAll("[data-i18n='project2Tech']").forEach(function (e) { e.textContent = t.project2Tech; });
     document.querySelectorAll("[data-i18n='projectCardCta']").forEach(function (e) { e.textContent = t.projectCardCta; });
+    document.querySelectorAll("[data-i18n='portfolioHint']").forEach(function (e) { e.textContent = t.portfolioHint; });
     if ((el = document.querySelector(".experience-heading"))) el.textContent = t.experienceHeading;
     if ((el = document.querySelector(".experience-role strong"))) el.textContent = t.experienceRole;
     document.querySelectorAll("[data-i18n='experienceDuration']").forEach(function (e) { e.textContent = t.experienceDuration; });

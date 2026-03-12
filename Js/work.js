@@ -47,6 +47,7 @@ const projects = {
 const backLabel = { pt: "← Voltar ao portfolio", en: "← Back to portfolio", fr: "← Retour au portfolio" };
 const backToTopLabel = { pt: "↑ Voltar ao topo", en: "↑ Back to top", fr: "↑ Retour en haut" };
 const builtWithLabel = { pt: "Construído com", en: "Built with", fr: "Construit avec" };
+const langLabel = { pt: "Idioma", en: "Language", fr: "Langue" };
 const FONT_SIZE_KEY = "portfolio-font-size";
 const MIN_FONT = 80;
 const MAX_FONT = 140;
@@ -110,6 +111,11 @@ function updateLangTrigger(lang) {
     var flagEl = document.getElementById("current-lang-flag");
     var t = document.getElementById("flag-" + lang);
     if (flagEl && t) flagEl.innerHTML = t.outerHTML;
+    var label = langLabel[lang] || langLabel.en;
+    var labelEl = document.querySelector(".lang-label");
+    if (labelEl) labelEl.textContent = label;
+    var btn = document.getElementById("lang-trigger");
+    if (btn) btn.setAttribute("aria-label", label);
 }
 
 function openLangDropdown() {
