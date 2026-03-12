@@ -417,16 +417,16 @@ button.active-language {
 .project-image-wrap {
     position: relative;
     overflow: hidden;
-    height: 240px;
+    aspect-ratio: 1;
+    width: 100%;
 }
 
-/* Card Claro: sem bordas, tamanho pra primeira imagem caber certinha com contain */
+/* Card Claro: sem bordas */
 .project-card--claro {
     border: none;
 }
 
 .project-card--claro .project-image-wrap--claro {
-    height: 280px;
     background: #1e293b;
     border: none;
 }
@@ -439,9 +439,8 @@ button.active-language {
     object-position: center center;
 }
 
-/* Controle de frotas: mesma altura do card Claro para não sobrar listra embaixo no grid */
+/* Controle de frotas */
 .project-image-wrap--frotas {
-    height: 280px;
     background: var(--bg-card);
 }
 
@@ -685,18 +684,6 @@ button.active-language {
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 6px;
-    }
-
-    .project-image-wrap {
-        height: 220px;
-    }
-
-    .project-image-wrap--claro {
-        height: 260px;
-    }
-
-    .project-image-wrap--frotas {
-        height: 260px;
     }
 
     .project-info {
