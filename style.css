@@ -739,6 +739,14 @@ button.active-language {
         padding: 14px 24px;
     }
 
+    .site-nav--hero {
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
     .site-header .site-nav {
         padding: 20px 28px;
     }
