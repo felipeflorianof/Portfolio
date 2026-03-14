@@ -48,6 +48,7 @@ const backLabel = { pt: "← Voltar ao portfolio", en: "← Back to portfolio", 
 const backToTopLabel = { pt: "↑ Voltar ao topo", en: "↑ Back to top", fr: "↑ Retour en haut" };
 const builtWithLabel = { pt: "Construído com", en: "Built with", fr: "Construit avec" };
 const langLabel = { pt: "Idioma", en: "Language", fr: "Langue" };
+const contactLabel = { pt: "Fale comigo", en: "Contact me", fr: "Me contacter" };
 const FONT_SIZE_KEY = "portfolio-font-size";
 const MIN_FONT = 80;
 const MAX_FONT = 140;
@@ -116,6 +117,8 @@ function updateLangTrigger(lang) {
     if (labelEl) labelEl.textContent = label;
     var btn = document.getElementById("lang-trigger");
     if (btn) btn.setAttribute("aria-label", label);
+    var contactText = contactLabel[lang] || contactLabel.en;
+    document.querySelectorAll("[data-i18n='navContact']").forEach(function (el) { el.textContent = contactText; });
 }
 
 function openLangDropdown() {
@@ -212,6 +215,20 @@ function init() {
     }
     if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
     if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
+
+    function applyContactHighlight() {
+        if (window.location.hash !== "#contact") return;
+        var footer = document.getElementById("contact");
+        if (!footer) return;
+        footer.classList.remove("site-footer--highlight");
+        footer.offsetHeight;
+        window.setTimeout(function () {
+            footer.classList.add("site-footer--highlight");
+            window.setTimeout(function () { footer.classList.remove("site-footer--highlight"); }, 4200);
+        }, 900);
+    }
+    applyContactHighlight();
+    window.addEventListener("hashchange", applyContactHighlight);
 
     // Fade in ao carregar
     requestAnimationFrame(function () {

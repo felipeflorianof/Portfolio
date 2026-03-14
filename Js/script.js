@@ -24,6 +24,7 @@ const texts = {
         heroQuote: "Gosto que o meu ficou um pouco descentralizado. Tem wabi-sabi.",
         navPortfolio: "Portfolio",
         navLanguage: "Idioma",
+        navContact: "Fale comigo",
         portfolioHeading: "Trabalhos em destaque",
         project1Title: "Claro Marketplace PME",
         project1Tech: "Angular",
@@ -44,6 +45,7 @@ const texts = {
         heroQuote: "I like how mine's a little off-center. It's got wabi-sabi.",
         navPortfolio: "Portfolio",
         navLanguage: "Language",
+        navContact: "Contact me",
         portfolioHeading: "Featured work",
         project1Title: "Claro Marketplace PME",
         project1Tech: "Angular",
@@ -64,6 +66,7 @@ const texts = {
         heroQuote: "J'aime que le mien soit un peu décentré. Il a du wabi-sabi.",
         navPortfolio: "Portfolio",
         navLanguage: "Langue",
+        navContact: "Me contacter",
         portfolioHeading: "Réalisations",
         project1Title: "Claro Marketplace PME",
         project1Tech: "Angular",
@@ -88,6 +91,7 @@ function updateText(language) {
     document.querySelectorAll("[data-i18n='heroQuote']").forEach(function (e) { e.textContent = t.heroQuote; });
     document.querySelectorAll("[data-i18n='navPortfolio']").forEach(function (e) { e.textContent = t.navPortfolio; });
     document.querySelectorAll("[data-i18n='navLanguage']").forEach(function (e) { e.textContent = t.navLanguage; });
+    document.querySelectorAll("[data-i18n='navContact']").forEach(function (e) { e.textContent = t.navContact; });
     var langTriggerBtn = document.getElementById("lang-trigger");
     if (langTriggerBtn) langTriggerBtn.setAttribute("aria-label", t.navLanguage);
     document.querySelectorAll("[data-i18n='portfolioHeading']").forEach(function (e) { e.textContent = t.portfolioHeading; });
@@ -170,6 +174,20 @@ var savedLang = null;
 try { savedLang = localStorage.getItem("portfolio-lang"); } catch (e) {}
 setLanguage(savedLang === "fr" || savedLang === "pt" ? savedLang : "en");
 setFontSize(getFontSize());
+
+function applyContactHighlight() {
+    if (window.location.hash !== "#contact") return;
+    var footer = document.getElementById("contact");
+    if (!footer) return;
+    footer.classList.remove("site-footer--highlight");
+    footer.offsetHeight;
+    window.setTimeout(function () {
+        footer.classList.add("site-footer--highlight");
+        window.setTimeout(function () { footer.classList.remove("site-footer--highlight"); }, 4200);
+    }, 900);
+}
+applyContactHighlight();
+window.addEventListener("hashchange", applyContactHighlight);
 
 // Dispara a animação de entrada do hero (após o texto estar preenchido)
 requestAnimationFrame(function () {

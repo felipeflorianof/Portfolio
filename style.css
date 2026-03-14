@@ -70,6 +70,26 @@ body.page-fade-out {
 }
 
 /* Nav controls: A-/A+ e dropdown de idiomas (estilo claro) */
+.nav-contact {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-contact:hover {
+    color: var(--accent);
+}
+
+.site-nav--hero .nav-contact {
+    color: var(--text);
+}
+
+.site-nav--hero .nav-contact:hover {
+    color: var(--accent);
+}
+
 .nav-controls {
     display: flex;
     align-items: center;
@@ -613,7 +633,7 @@ button.active-language {
 .back-to-top {
     display: block;
     text-align: center;
-    padding: 20px;
+    padding: 20px 20px 68px;
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.875rem;
@@ -628,9 +648,10 @@ button.active-language {
 /* ========== Footer ========== */
 .site-footer {
     text-align: center;
-    padding: 48px 24px 0;
+    padding: 0 24px;
     font-size: 0.875rem;
     color: var(--text-muted);
+    scroll-margin-top: 24px;
 }
 
 .footer-name {
@@ -654,6 +675,30 @@ button.active-language {
     margin: 0 0.2em;
     color: var(--text-muted);
     font-weight: 400;
+}
+
+/* Destaque ao rolar até contato (Contact me) — guia o olhar */
+.site-footer--highlight {
+    animation: footer-focus 4s ease-out forwards;
+}
+
+@keyframes footer-focus {
+    0% {
+        box-shadow: inset 8px 0 0 rgba(37, 99, 235, 0);
+        background: rgba(37, 99, 235, 0);
+    }
+    8% {
+        box-shadow: inset 8px 0 0 var(--accent);
+        background: rgba(37, 99, 235, 0.22);
+    }
+    58% {
+        box-shadow: inset 8px 0 0 var(--accent);
+        background: rgba(37, 99, 235, 0.22);
+    }
+    100% {
+        box-shadow: inset 8px 0 0 transparent;
+        background: transparent;
+    }
 }
 
 /* ========== Responsive ========== */
