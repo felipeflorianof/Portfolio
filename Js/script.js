@@ -188,6 +188,21 @@ function applyContactHighlight() {
 }
 applyContactHighlight();
 window.addEventListener("hashchange", applyContactHighlight);
+document.querySelectorAll('a[href="#contact"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+        if (window.location.hash === "#contact") window.setTimeout(applyContactHighlight, 150);
+    });
+});
+
+try {
+    if (sessionStorage.getItem("scrollToPortfolio")) {
+        sessionStorage.removeItem("scrollToPortfolio");
+        requestAnimationFrame(function () {
+            var el = document.getElementById("portfolio");
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+    }
+} catch (e) {}
 
 // Dispara a animação de entrada do hero (após o texto estar preenchido)
 requestAnimationFrame(function () {

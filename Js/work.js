@@ -54,10 +54,14 @@ const MIN_FONT = 80;
 const MAX_FONT = 140;
 const FONT_STEP = 10;
 
+var projectSlugToKey = { "marketplace-pme": "equipe", "fleet-control": "manutencao" };
+
 function getParam() {
     const params = new URLSearchParams(window.location.search);
-    const p = params.get("p");
-    return projects[p] ? p : "equipe";
+    var slug = params.get("project") || params.get("p");
+    if (projectSlugToKey[slug]) return projectSlugToKey[slug];
+    if (projects[slug]) return slug;
+    return "equipe";
 }
 
 function getLang() {
@@ -89,7 +93,7 @@ function render(projectKey) {
     backEl.textContent = backLabel[lang];
     var basePath = window.location.pathname.replace(/\/[^/]*$/, "") || "/";
     var indexUrl = basePath === "/" ? "/" : basePath + "/";
-    backEl.href = indexUrl + "#portfolio";
+    backEl.href = indexUrl;
     var backToTopEl = document.getElementById("work-back-to-top");
     if (backToTopEl) backToTopEl.textContent = backToTopLabel[lang] || backToTopLabel.en;
     document.title = data.title + " — Felipe Fontes";
@@ -220,15 +224,21 @@ function init() {
         if (window.location.hash !== "#contact") return;
         var footer = document.getElementById("contact");
         if (!footer) return;
-        footer.classList.remove("site-footer--highlight");
-        footer.offsetHeight;
+        var target = footer.querySelector(".site-footer__contact-block") || footer;
+        target.classList.remove("site-footer--highlight");
+        target.offsetHeight;
         window.setTimeout(function () {
-            footer.classList.add("site-footer--highlight");
-            window.setTimeout(function () { footer.classList.remove("site-footer--highlight"); }, 4200);
+            target.classList.add("site-footer--highlight");
+            window.setTimeout(function () { target.classList.remove("site-footer--highlight"); }, 4200);
         }, 900);
     }
     applyContactHighlight();
     window.addEventListener("hashchange", applyContactHighlight);
+    document.querySelectorAll('a[href="#contact"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+            if (window.location.hash === "#contact") window.setTimeout(applyContactHighlight, 150);
+        });
+    });
 
     // Fade in ao carregar
     requestAnimationFrame(function () {
@@ -247,6 +257,7 @@ function init() {
         if (!goesToIndex) return;
         if (a.origin && a.origin !== window.location.origin) return;
         e.preventDefault();
+        if (isBack) try { sessionStorage.setItem("scrollToPortfolio", "1"); } catch (err) {}
         document.body.classList.add("page-fade-out");
         var targetHref = a.getAttribute("href") || a.href;
         setTimeout(function () { window.location.href = targetHref; }, 260);

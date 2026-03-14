@@ -770,6 +770,43 @@ button.active-language {
     .site-header .site-nav {
         padding: 20px 28px;
     }
+
+    .work-page .site-header {
+        position: relative;
+        width: 100%;
+        background: var(--bg);
+        padding: 16px 20px 16px 28px;
+        padding-left: max(28px, env(safe-area-inset-left, 28px));
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .work-page .site-header .site-nav,
+    .work-page .site-header .site-nav--hero,
+    .work-page .site-header.site-header--minimal .site-nav {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: none;
+        padding: 0;
+        min-width: 0;
+        justify-content: space-between;
+        gap: 12px;
+        overflow: visible;
+    }
+
+    .work-page .site-header .nav-contact {
+        flex-shrink: 0;
+        font-size: 13px;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .work-page .site-header .nav-controls {
+        flex-shrink: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -817,6 +854,7 @@ body.work-page {
     flex-direction: column;
     min-height: 100vh;
     padding-bottom: 0;
+    background: var(--bg);
 }
 
 body.work-page .site-header {
@@ -825,10 +863,10 @@ body.work-page .site-header {
 
 .work-page .work-main {
     flex: 1 0 auto;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 72px 24px 48px;
     width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 72px 28px 48px;
     box-sizing: border-box;
 }
 
@@ -978,6 +1016,18 @@ body.work-page .site-footer {
     padding: 32px 24px 40px;
 }
 
+.site-footer__contact-block {
+    display: inline-block;
+}
+
+.work-page-footer .site-footer__contact-block {
+    display: block;
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
+    box-sizing: border-box;
+}
+
 .work-page-footer .footer-name::after,
 .work-page-footer .footer-link:not(:last-child)::after {
     content: " · ";
@@ -1002,6 +1052,11 @@ body.work-page .site-footer {
 @media (max-width: 480px) {
     .work-page .work-main {
         padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .work-page .site-header {
+        padding-left: 32px;
         padding-right: 28px;
     }
 }
