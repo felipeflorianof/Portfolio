@@ -461,11 +461,6 @@ button.active-language {
     width: 100%;
 }
 
-/* Card Claro: sem bordas */
-.project-card--claro {
-    border: none;
-}
-
 .project-card--claro .project-image-wrap--claro {
     background: #1e293b;
     border: none;
