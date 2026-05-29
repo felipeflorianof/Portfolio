@@ -41,6 +41,46 @@ const projects = {
             image: "assets/claro-marketplace-pme.png",
             description: "Je travaille en tant que développeur front-end sur ce projet d'équipe, sur les interfaces en Angular. Le produit a d'abord été développé sur WordPress puis migré vers Angular. C'est une plateforme en libre-service permettant aux entreprises et représentants d'acheter facilement des produits et services Claro et de ses partenaires. La maquette respecte l'identité visuelle de Claro, avec des adaptations qui donnent au produit sa propre identité et simplifient le parcours d'achat. Le code respecte les bonnes pratiques SEO."
         }
+    },
+    umanager: {
+        pt: {
+            title: "uManager",
+            tech: "Angular",
+            image: "assets/umanager-dashboard.png",
+            description: "Atuo como desenvolvedor front-end no uManager, um sistema interno para criação e gerenciamento de produtos. A plataforma também exibe status de progresso de compras feitas pelos usuários, permite gestão desses usuários e oferece visualização de métricas para acompanhamento do negócio."
+        },
+        en: {
+            title: "uManager",
+            tech: "Angular",
+            image: "assets/umanager-dashboard.png",
+            description: "I work as a front-end developer on uManager, an internal system for creating and managing products. The platform also shows purchase progress status for user orders, supports user management, and provides metric dashboards for business monitoring."
+        },
+        fr: {
+            title: "uManager",
+            tech: "Angular",
+            image: "assets/umanager-dashboard.png",
+            description: "Je travaille en tant que développeur front-end sur uManager, un système interne de création et de gestion de produits. La plateforme affiche également l'état d'avancement des achats des utilisateurs, permet la gestion de ces utilisateurs et propose la visualisation de métriques pour le suivi de l'activité."
+        }
+    },
+    parceiros: {
+        pt: {
+            title: "Portal de Parceiros",
+            tech: "Angular",
+            image: "assets/portal-parceiros.png",
+            description: "Atuo como desenvolvedor front-end neste Portal de Parceiros do ecossistema do Marketplace PME. Nele, os parceiros podem cadastrar e gerenciar seus próprios produtos dentro do marketplace da Claro, com mais autonomia para oferta e vendas. O fluxo inclui uma esteira de avaliação da submissão do parceiro e do produto, garantindo governança antes da publicação."
+        },
+        en: {
+            title: "Partner Portal",
+            tech: "Angular",
+            image: "assets/portal-parceiros.png",
+            description: "I work as a front-end developer on this Partner Portal within the Marketplace PME ecosystem. It allows partners to create and manage their own product listings inside Claro's marketplace, giving them more autonomy to offer and sell. The flow includes a review pipeline for both partner submissions and products before publication."
+        },
+        fr: {
+            title: "Portail Partenaires",
+            tech: "Angular",
+            image: "assets/portal-parceiros.png",
+            description: "Je travaille en tant que développeur front-end sur ce Portail Partenaires de l'écosystème Marketplace PME. Il permet aux partenaires de créer et de gérer leurs propres produits dans la marketplace de Claro, avec davantage d'autonomie pour la mise en vente. Le processus comprend une chaîne d'évaluation des soumissions du partenaire et des produits avant publication."
+        }
     }
 };
 
@@ -54,7 +94,7 @@ const MIN_FONT = 80;
 const MAX_FONT = 140;
 const FONT_STEP = 10;
 
-var projectSlugToKey = { "marketplace-pme": "equipe", "fleet-control": "manutencao" };
+var projectSlugToKey = { "marketplace-pme": "equipe", "fleet-control": "manutencao", "umanager": "umanager", "partner-portal": "parceiros" };
 
 function getParam() {
     const params = new URLSearchParams(window.location.search);

@@ -30,6 +30,10 @@ const texts = {
         project1Tech: "Angular",
         project2Title: "Claro Controle de frotas",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
+        project3Title: "uManager",
+        project3Tech: "Angular",
+        project4Title: "Portal de Parceiros",
+        project4Tech: "Angular",
         projectCardCta: "Clique para saber mais",
         portfolioHint: "Clique em uma imagem para ver mais detalhes sobre o projeto.",
         experienceHeading: "Experiência",
@@ -51,6 +55,10 @@ const texts = {
         project1Tech: "Angular",
         project2Title: "Claro Fleet control system",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
+        project3Title: "uManager",
+        project3Tech: "Angular",
+        project4Title: "Partner Portal",
+        project4Tech: "Angular",
         projectCardCta: "Click to learn more",
         portfolioHint: "Click on an image to see more details about the project.",
         experienceHeading: "Experience",
@@ -72,6 +80,10 @@ const texts = {
         project1Tech: "Angular",
         project2Title: "Claro Système de gestion de flotte",
         project2Tech: "Front · Back · SQL · Laravel · PHP",
+        project3Title: "uManager",
+        project3Tech: "Angular",
+        project4Title: "Portail Partenaires",
+        project4Tech: "Angular",
         projectCardCta: "Cliquez pour en savoir plus",
         portfolioHint: "Cliquez sur une image pour voir plus de détails sur le projet.",
         experienceHeading: "Expérience",
@@ -99,6 +111,10 @@ function updateText(language) {
     document.querySelectorAll("[data-i18n='project1Tech']").forEach(function (e) { e.textContent = t.project1Tech; });
     document.querySelectorAll("[data-i18n='project2Title']").forEach(function (e) { e.textContent = t.project2Title; });
     document.querySelectorAll("[data-i18n='project2Tech']").forEach(function (e) { e.textContent = t.project2Tech; });
+    document.querySelectorAll("[data-i18n='project3Title']").forEach(function (e) { e.textContent = t.project3Title; });
+    document.querySelectorAll("[data-i18n='project3Tech']").forEach(function (e) { e.textContent = t.project3Tech; });
+    document.querySelectorAll("[data-i18n='project4Title']").forEach(function (e) { e.textContent = t.project4Title; });
+    document.querySelectorAll("[data-i18n='project4Tech']").forEach(function (e) { e.textContent = t.project4Tech; });
     document.querySelectorAll("[data-i18n='projectCardCta']").forEach(function (e) { e.textContent = t.projectCardCta; });
     document.querySelectorAll("[data-i18n='portfolioHint']").forEach(function (e) { e.textContent = t.portfolioHint; });
     if ((el = document.querySelector(".experience-heading"))) el.textContent = t.experienceHeading;

@@ -442,6 +442,7 @@ button.active-language {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    align-self: start;
 }
 
 .project-card-link {
@@ -481,6 +482,23 @@ button.active-language {
 
 .project-image-wrap--frotas .project-image {
     object-position: center top;
+}
+
+/* uManager: aplicar zoom na miniatura */
+.project-image-wrap--umanager {
+    background: #111827;
+}
+
+.project-image-wrap--umanager .project-image {
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(1.2);
+    transform-origin: center center;
+    background: #111827;
+}
+
+.project-image-wrap--partners .project-image {
+    object-position: center 100%;
 }
 
 .project-image-wrap::after {
@@ -912,10 +930,12 @@ body.work-page .site-footer {
 }
 
 .work-image {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
     max-height: 640px;
     display: block;
+    margin: 0 auto;
     border-radius: 0;
     cursor: zoom-in;
     /* Use imagem com largura mín. 1360px para ficar nítida em telas retina */
