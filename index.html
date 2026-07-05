@@ -1,113 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Felipe Fontes</title>
-</head>
-<body class="fade-in-load">
-    <main>
-        <section id="hero" class="hero">
-            <nav class="site-nav site-nav--hero">
-                <a href="#contact" class="nav-contact scroll-link" data-i18n="navContact">Contact me</a>
-                <div class="nav-controls">
-                    <div class="text-size-controls">
-                        <button type="button" class="text-size-btn" id="font-decrease" aria-label="Diminuir tamanho do texto">A-</button>
-                        <button type="button" class="text-size-btn" id="font-increase" aria-label="Aumentar tamanho do texto">A+</button>
-                    </div>
-                    <div class="lang-dropdown">
-                        <button type="button" class="lang-dropdown-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma">
-                            <span class="lang-flag lang-flag-svg" id="current-lang-flag" aria-hidden="true"></span>
-                            <span class="lang-label" data-i18n="navLanguage">Idioma</span>
-                            <span class="lang-chevron" aria-hidden="true">▼</span>
-                        </button>
-                        <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-hidden="true">
-                            <li class="lang-option" role="option" data-lang="pt" tabindex="0"><span class="lang-flag lang-flag-svg"><svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true"><rect width="20" height="14" fill="#009739"/><path d="M10 0L20 7 10 14 0 7z" fill="#FEDD00"/><circle cx="10" cy="7" r="3.2" fill="#012169"/></svg></span> PT-BR</li>
-                            <li class="lang-option" role="option" data-lang="en" tabindex="0"><span class="lang-flag lang-flag-svg"><svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true"><rect width="20" height="14" fill="#B22234"/><rect y="1.08" width="20" height="1.08" fill="#fff"/><rect y="2.16" width="20" height="1.08" fill="#B22234"/><rect y="3.24" width="20" height="1.08" fill="#fff"/><rect y="4.32" width="20" height="1.08" fill="#B22234"/><rect y="5.4" width="20" height="1.08" fill="#fff"/><rect y="6.48" width="20" height="1.08" fill="#B22234"/><rect y="7.56" width="20" height="1.08" fill="#fff"/><rect y="8.64" width="20" height="1.08" fill="#B22234"/><rect y="9.72" width="20" height="1.08" fill="#fff"/><rect y="10.8" width="20" height="1.08" fill="#B22234"/><rect y="11.88" width="20" height="1.08" fill="#fff"/><rect width="8" height="7.56" fill="#3C3B6E"/></svg></span> EN</li>
-                            <li class="lang-option" role="option" data-lang="fr" tabindex="0"><span class="lang-flag lang-flag-svg"><svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true"><rect width="6.67" height="14" fill="#002395"/><rect x="6.67" width="6.66" height="14" fill="#fff"/><rect x="13.33" width="6.67" height="14" fill="#ED2939"/></svg></span> FR</li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <p class="hero-subtitle"></p>
-            <h1 class="hero-title"></h1>
-            <a href="#work-intro" class="hero-cta scroll-link"></a>
-    </section>
-
-        <section id="work-intro" class="quote-section">
-            <p class="site-quote" data-i18n="heroQuote"></p>
-        </section>
-
-        <section id="portfolio" class="portfolio-section">
-            <h2 class="portfolio-heading" data-i18n="portfolioHeading">Some of my work</h2>
-            <div class="projects-grid">
-                <a href="work.html?project=marketplace-pme" class="project-card project-card--claro project-card-link">
-                    <div class="project-image-wrap project-image-wrap--claro">
-                        <img class="project-image" src="assets/claro-marketplace-pme.png" alt="Claro Marketplace PME — soluções digitais em múltiplos dispositivos">
-                        <div class="project-info">
-                            <span class="project-title" data-i18n="project1Title">Claro Marketplace PME</span>
-                            <span class="project-tech" data-i18n="project1Tech">Angular</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work.html?project=fleet-control" class="project-card project-card--frotas project-card-link">
-                    <div class="project-image-wrap project-image-wrap--frotas">
-                        <img class="project-image" src="assets/riseshot-17731932181513871.png" alt="Claro Controle de frotas — tela de administração">
-                        <div class="project-info">
-                            <span class="project-title" data-i18n="project2Title">Claro Controle de frotas</span>
-                            <span class="project-tech" data-i18n="project2Tech">Front · Back · SQL · Laravel · PHP</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work.html?project=umanager" class="project-card project-card--umanager project-card-link">
-                    <div class="project-image-wrap project-image-wrap--umanager">
-                        <img class="project-image" src="assets/umanager-dashboard.png" alt="uManager — sistema interno de gestão de produtos e usuários">
-                        <div class="project-info">
-                            <span class="project-title" data-i18n="project3Title">uManager</span>
-                            <span class="project-tech" data-i18n="project3Tech">Angular</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work.html?project=partner-portal" class="project-card project-card--partners project-card-link">
-                    <div class="project-image-wrap project-image-wrap--partners">
-                        <img class="project-image" src="assets/portal-parceiros.png" alt="Portal de Parceiros — cadastro de produtos no marketplace da Claro">
-                        <div class="project-info">
-                            <span class="project-title" data-i18n="project4Title">Portal de Parceiros</span>
-                            <span class="project-tech" data-i18n="project4Tech">Angular</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <p class="portfolio-hint" data-i18n="portfolioHint"></p>
-        </section>
-
-        <section id="experience" class="experience-section">
-            <h2 class="experience-heading" data-i18n="experienceHeading"></h2>
-            <div class="experience-card">
-                <p class="experience-role"><strong></strong><span class="experience-duration" data-i18n="experienceDuration"></span></p>
-                <p class="experience-description"></p>
-            </div>
-        </section>
-
-        <a href="#hero" id="back-to-top" class="back-to-top scroll-link"></a>
-
-        <footer id="contact" class="site-footer">
-            <span class="footer-name">Felipe Fontes</span>
-            <a href="https://www.linkedin.com/in/felipeflorianofontes/" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-link">LinkedIn</a>
-            <a href="mailto:felipeflorianof@gmail.com" class="footer-link" aria-label="Email">Gmail</a>
-</footer>
-    </main>
-
-    <div hidden aria-hidden="true" id="flag-templates">
-        <svg id="flag-pt" viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" fill="#009739"/><path d="M10 0L20 7 10 14 0 7z" fill="#FEDD00"/><circle cx="10" cy="7" r="3.2" fill="#012169"/></svg>
-        <svg id="flag-en" viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" fill="#B22234"/><rect y="1.08" width="20" height="1.08" fill="#fff"/><rect y="2.16" width="20" height="1.08" fill="#B22234"/><rect y="3.24" width="20" height="1.08" fill="#fff"/><rect y="4.32" width="20" height="1.08" fill="#B22234"/><rect y="5.4" width="20" height="1.08" fill="#fff"/><rect y="6.48" width="20" height="1.08" fill="#B22234"/><rect y="7.56" width="20" height="1.08" fill="#fff"/><rect y="8.64" width="20" height="1.08" fill="#B22234"/><rect y="9.72" width="20" height="1.08" fill="#fff"/><rect y="10.8" width="20" height="1.08" fill="#B22234"/><rect y="11.88" width="20" height="1.08" fill="#fff"/><rect width="8" height="7.56" fill="#3C3B6E"/></svg>
-        <svg id="flag-fr" viewBox="0 0 20 14" width="20" height="14"><rect width="6.67" height="14" fill="#002395"/><rect x="6.67" width="6.66" height="14" fill="#fff"/><rect x="13.33" width="6.67" height="14" fill="#ED2939"/></svg>
-    </div>
-<script src="Js/script.js"></script>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
