@@ -14,7 +14,7 @@ export const experienceByLang = {
         employment: "Tempo integral",
         roles: [
           {
-            title: "Desenvolvedor de software Pleno",
+            title: "Desenvolvedor de Software",
             dates: "mar 2023 - o momento",
           },
         ],
@@ -26,7 +26,7 @@ export const experienceByLang = {
         employment: "Freelancer",
         roles: [
           {
-            title: "Desenvolvedor Web - freelancer",
+            title: "Desenvolvedor Web",
             dates: "30 jun 2026 - o momento",
           },
         ],
