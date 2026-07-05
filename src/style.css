@@ -620,6 +620,9 @@ button.active-language {
 }
 
 .exp-entry {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 12px;
     padding: 10px 0;
 }
 
@@ -631,10 +634,66 @@ button.active-language {
     padding-bottom: 4px;
 }
 
-.exp-entry-header {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
+.exp-entry-logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.exp-entry-body {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    column-gap: 10px;
+    row-gap: 12px;
+    align-items: start;
+    min-width: 0;
+}
+
+.exp-company-block {
+    grid-column: 1 / -1;
+    min-width: 0;
+}
+
+.exp-role-marker {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    width: 18px;
+    height: 31px;
+    justify-self: center;
+}
+
+.exp-role-marker::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid rgba(15, 23, 42, 0.2);
+    box-sizing: border-box;
+}
+
+.exp-role-marker::after {
+    content: "";
+    position: absolute;
+    top: 19px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 12px;
+    background: rgba(15, 23, 42, 0.12);
+    border-radius: 1px;
+}
+
+.exp-role-text {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
 }
 
 .exp-logo {
@@ -654,11 +713,6 @@ button.active-language {
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 700;
-}
-
-.exp-company-meta {
-    flex: 1;
-    min-width: 0;
 }
 
 .exp-company-name,
@@ -681,83 +735,6 @@ button.active-language {
 
 .exp-dates {
     margin-bottom: 2px;
-}
-
-.exp-roles {
-    margin-top: 12px;
-}
-
-.exp-roles--timeline {
-    position: relative;
-    margin-left: 24px;
-    padding-left: 28px;
-}
-
-.exp-roles--timeline::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background: rgba(15, 23, 42, 0.12);
-    border-radius: 1px;
-}
-
-.exp-role {
-    position: relative;
-    padding-bottom: 12px;
-}
-
-.exp-role:last-child {
-    padding-bottom: 0;
-}
-
-.exp-roles--timeline .exp-role::before {
-    content: "";
-    position: absolute;
-    left: -33px;
-    top: 8px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid rgba(15, 23, 42, 0.2);
-    box-sizing: border-box;
-}
-
-.exp-role-body {
-    margin-top: 12px;
-    padding-left: 60px;
-}
-
-.exp-description {
-    margin: 6px 0 0;
-    font-size: 0.875rem;
-    line-height: 1.55;
-    color: var(--text-muted);
-}
-
-.exp-skills {
-    display: flex;
-    gap: 6px;
-    align-items: flex-start;
-    margin: 8px 0 0;
-    font-size: 0.8125rem;
-    line-height: 1.45;
-    color: var(--text-muted);
-}
-
-.exp-skills strong {
-    font-weight: 600;
-    color: var(--text);
-}
-
-.exp-skills-icon {
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-size: 0.625rem;
-    color: var(--text-muted);
 }
 
 .exp-divider {
@@ -994,19 +971,6 @@ button.active-language {
 
     .experience-card {
         padding: 16px 20px;
-    }
-
-    .exp-role-body {
-        padding-left: 0;
-    }
-
-    .exp-roles--timeline {
-        margin-left: 12px;
-        padding-left: 20px;
-    }
-
-    .exp-roles--timeline .exp-role::before {
-        left: -25px;
     }
 
     .interview-cta {

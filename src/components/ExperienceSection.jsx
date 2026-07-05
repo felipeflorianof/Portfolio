@@ -21,19 +21,21 @@ function ExperienceEntry({ entry, remoteLabel }) {
   const role = entry.roles[0];
 
   return (
-    <article className="exp-entry exp-entry--grouped">
-      <div className="exp-entry-header">
+    <article className="exp-entry">
+      <div className="exp-entry-logo">
         <CompanyLogo entry={entry} />
-        <div className="exp-company-meta">
-          {!entry.hideCompanyName && <h3 className="exp-company-name">{entry.company}</h3>}
+      </div>
+
+      <div className="exp-entry-body">
+        <div className="exp-company-block">
+          <h3 className="exp-company-name">{entry.company}</h3>
           <p className="exp-meta-line">
             {entry.employment} · {remoteLabel}
           </p>
         </div>
-      </div>
 
-      <div className="exp-roles exp-roles--timeline">
-        <div className="exp-role">
+        <span className="exp-role-marker" aria-hidden="true" />
+        <div className="exp-role-text">
           <h4 className="exp-role-title">{role.title}</h4>
           <p className="exp-dates">{role.dates}</p>
         </div>
